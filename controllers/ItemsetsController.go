@@ -1,11 +1,11 @@
 package controllers
 
 import (
+	"github.com/astaxie/beego/logs"
+	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/models"
-	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/utils/pagination"
-	"github.com/astaxie/beego"
 )
 
 type ItemsetsController struct {
@@ -65,7 +65,7 @@ func (c *ItemsetsController) List() {
 		if err == orm.ErrNoRows {
 			c.Abort("404")
 		} else {
-			beego.Error(err)
+			logs.Error(err)
 			c.Abort("500")
 		}
 	}

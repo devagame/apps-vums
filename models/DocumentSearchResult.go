@@ -3,8 +3,8 @@ package models
 import (
 	"time"
 
+	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
-	"github.com/astaxie/beego"
 	"strings"
 )
 
@@ -99,7 +99,7 @@ LIMIT ?, ?;`
 
 		err = o.Raw(sql1, keyword, keyword).QueryRow(&totalCount)
 		if err != nil {
-			beego.Error("查询搜索结果失败 -> ",err)
+			logs.Error("查询搜索结果失败 -> ",err)
 			return
 		}
 		sql3 := `       SELECT
@@ -110,7 +110,7 @@ LIMIT ?, ?;`
 		c := 0
 		err = o.Raw(sql3, keyword, keyword).QueryRow(&c)
 		if err != nil {
-			beego.Error("查询搜索结果失败 -> ",err)
+			logs.Error("查询搜索结果失败 -> ",err)
 			return
 		}
 
@@ -121,7 +121,7 @@ WHERE book.privately_owned = 0 AND (book.book_name LIKE ? OR book.description LI
 
 		err = o.Raw(sql4, keyword, keyword).QueryRow(&c)
 		if err != nil {
-			beego.Error("查询搜索结果失败 -> ",err)
+			logs.Error("查询搜索结果失败 -> ",err)
 			return
 		}
 
@@ -129,7 +129,7 @@ WHERE book.privately_owned = 0 AND (book.book_name LIKE ? OR book.description LI
 
 		_, err = o.Raw(sql2, keyword, keyword,keyword,keyword,keyword,keyword, offset, pageSize).QueryRows(&searchResult)
 		if err != nil {
-			beego.Error("查询搜索结果失败 -> ",err)
+			logs.Error("查询搜索结果失败 -> ",err)
 			return
 		}
 	} else {
@@ -238,7 +238,7 @@ LIMIT ?, ?;`
 		c := 0
 		err = o.Raw(sql3,memberId, keyword, keyword).QueryRow(&c)
 		if err != nil {
-			beego.Error("查询搜索结果失败 -> ",err)
+			logs.Error("查询搜索结果失败 -> ",err)
 			return
 		}
 
@@ -255,7 +255,7 @@ WHERE (book.privately_owned = 0 OR rel1.relationship_id > 0 or team.team_member_
 
 		err = o.Raw(sql4,memberId, memberId,keyword, keyword).QueryRow(&c)
 		if err != nil {
-			beego.Error("查询搜索结果失败 -> ",err)
+			logs.Error("查询搜索结果失败 -> ",err)
 			return
 		}
 

@@ -1,11 +1,11 @@
 package controllers
 
 import (
-	"math"
-	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
+	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/models"
 	"github.com/devagame/apps-vums/utils/pagination"
-	"github.com/devagame/apps-vums/conf"
+	"math"
 	"net/url"
 )
 
@@ -36,7 +36,7 @@ func (c *HomeController) Index() {
 	books, totalCount, err := models.NewBook().FindForHomeToPager(pageIndex, pageSize, memberId)
 
 	if err != nil {
-		beego.Error(err)
+		logs.Error(err)
 		c.Abort("500")
 	}
 	if totalCount > 0 {

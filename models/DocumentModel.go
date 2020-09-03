@@ -9,6 +9,7 @@ import (
 	"bytes"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/cache"
 	"github.com/devagame/apps-vums/conf"
@@ -141,7 +142,7 @@ func (item *Document) RecursiveDocument(docId int) error {
 
 	_, err := o.Raw("SELECT document_id FROM " + item.TableNameWithPrefix() + " WHERE parent_id=" + strconv.Itoa(docId)).Values(&maps)
 	if err != nil {
-		beego.Error("RecursiveDocument => ", err)
+		logs.Error("RecursiveDocument => ", err)
 		return err
 	}
 
@@ -246,14 +247,14 @@ func (item *Document) ReleaseContent() error {
 	err := item.Processor().InsertOrUpdate("release")
 
 	if err != nil {
-		beego.Error(fmt.Sprintf("发布失败 -> %+v", item), err)
+		logs.Error(fmt.Sprintf("发布失败 -> %+v", item), err)
 		return err
 	}
 	//当文档发布后，需要清除已缓存的转换文档和文档缓存
 	item.RemoveCache()
 
 	if err := os.RemoveAll(filepath.Join(conf.WorkingDirectory, "uploads", "books", strconv.Itoa(item.BookId))); err != nil {
-		beego.Error("删除已缓存的文档目录失败 -> ", filepath.Join(conf.WorkingDirectory, "uploads", "books", strconv.Itoa(item.BookId)))
+		logs.Error("删除已缓存的文档目录失败 -> ", filepath.Join(conf.WorkingDirectory, "uploads", "books", strconv.Itoa(item.BookId)))
 		return err
 	}
 

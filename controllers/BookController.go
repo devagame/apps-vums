@@ -533,7 +533,7 @@ func (c *BookController) Create() {
 		bookResult, err := models.NewBookResult().FindByIdentify(book.Identify, c.Member.MemberId)
 
 		if err != nil {
-			beego.Error(err)
+			logs.Error(err)
 		}
 
 		beego.Info("用户[", c.Member.Account, "]创建了项目 ->", book)
@@ -561,7 +561,7 @@ func (c *BookController) Copy() {
 		} else {
 			bookResult, err := models.NewBookResult().FindByIdentify(book.Identify, c.Member.MemberId)
 			if err != nil {
-				beego.Error("查询失败")
+				logs.Error("查询失败")
 			}
 			c.JsonResult(0, "ok", bookResult)
 		}
@@ -730,7 +730,7 @@ func (c *BookController) Release() {
 	if c.Member.IsAdministrator() {
 		book, err := models.NewBook().FindByFieldFirst("identify", identify)
 		if err != nil {
-			beego.Error("发布文档失败 ->", err)
+			logs.Error("发布文档失败 ->", err)
 			c.JsonResult(6003, "文档不存在")
 			return
 		}
@@ -745,7 +745,7 @@ func (c *BookController) Release() {
 			if err == orm.ErrNoRows {
 				c.JsonResult(6002, "项目不存在")
 			}
-			beego.Error(err)
+			logs.Error(err)
 			c.JsonResult(6003, "未知错误")
 		}
 		if book.RoleId != conf.BookAdmin && book.RoleId != conf.BookFounder && book.RoleId != conf.BookEditor {
@@ -778,7 +778,7 @@ func (c *BookController) SaveSort() {
 	} else {
 		bookResult, err := models.NewBookResult().FindByIdentify(identify, c.Member.MemberId)
 		if err != nil {
-			beego.Error("DocumentController.Edit => ", err)
+			logs.Error("DocumentController.Edit => ", err)
 
 			c.Abort("403")
 		}
@@ -795,7 +795,7 @@ func (c *BookController) SaveSort() {
 	err := json.Unmarshal(content, &docs)
 
 	if err != nil {
-		beego.Error(err)
+		logs.Error(err)
 		c.JsonResult(6003, "数据错误")
 	}
 
@@ -803,7 +803,7 @@ func (c *BookController) SaveSort() {
 		if docId, ok := item["id"].(float64); ok {
 			doc, err := models.NewDocument().Find(int(docId))
 			if err != nil {
-				beego.Error(err)
+				logs.Error(err)
 				continue
 			}
 			if doc.BookId != bookId {
@@ -829,7 +829,7 @@ func (c *BookController) SaveSort() {
 			doc.ParentId = int(parentId)
 			if err := doc.InsertOrUpdate(); err != nil {
 				fmt.Printf("%s", err.Error())
-				beego.Error(err)
+				logs.Error(err)
 			}
 		} else {
 			fmt.Printf("文档ID转换失败 => %+v", item)

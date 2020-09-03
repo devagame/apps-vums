@@ -193,11 +193,11 @@ func (book *Book) Copy(identify string) error {
 	err := o.QueryTable(book.TableNameWithPrefix()).Filter("identify", identify).One(book)
 
 	if err != nil {
-		beego.Error("查询项目时出错 -> ", err)
+		logs.Error("查询项目时出错 -> ", err)
 		return err
 	}
 	if err := o.Begin(); err != nil {
-		beego.Error("开启事物时出错 -> ", err)
+		logs.Error("开启事物时出错 -> ", err)
 		return err
 	}
 
@@ -210,14 +210,14 @@ func (book *Book) Copy(identify string) error {
 	book.HistoryCount = 0
 
 	if _, err := o.Insert(book); err != nil {
-		beego.Error("复制项目时出错 -> ", err)
+		logs.Error("复制项目时出错 -> ", err)
 		o.Rollback()
 		return err
 	}
 	var rels []*Relationship
 
 	if _, err := o.QueryTable(NewRelationship().TableNameWithPrefix()).Filter("book_id", bookId).All(&rels); err != nil {
-		beego.Error("复制项目关系时出错 -> ", err)
+		logs.Error("复制项目关系时出错 -> ", err)
 		o.Rollback()
 		return err
 	}
@@ -226,7 +226,7 @@ func (book *Book) Copy(identify string) error {
 		rel.BookId = book.BookId
 		rel.RelationshipId = 0
 		if _, err := o.Insert(rel); err != nil {
-			beego.Error("复制项目关系时出错 -> ", err)
+			logs.Error("复制项目关系时出错 -> ", err)
 			o.Rollback()
 			return err
 		}
@@ -235,13 +235,13 @@ func (book *Book) Copy(identify string) error {
 	var docs []*Document
 
 	if _, err := o.QueryTable(NewDocument().TableNameWithPrefix()).Filter("book_id", bookId).Filter("parent_id", 0).All(&docs); err != nil && err != orm.ErrNoRows {
-		beego.Error("读取项目文档时出错 -> ", err)
+		logs.Error("读取项目文档时出错 -> ", err)
 		o.Rollback()
 		return err
 	}
 	if len(docs) > 0 {
 		if err := recursiveInsertDocument(docs, o, book.BookId, 0); err != nil {
-			beego.Error("复制项目时出错 -> ", err)
+			logs.Error("复制项目时出错 -> ", err)
 			o.Rollback()
 			return err
 		}
@@ -261,7 +261,7 @@ func recursiveInsertDocument(docs []*Document, o orm.Ormer, bookId int, parentId
 		doc.Version = time.Now().Unix()
 
 		if _, err := o.Insert(doc); err != nil {
-			beego.Error("插入项目时出错 -> ", err)
+			logs.Error("插入项目时出错 -> ", err)
 			return err
 		}
 
@@ -280,7 +280,7 @@ func recursiveInsertDocument(docs []*Document, o orm.Ormer, bookId int, parentId
 		var subDocs []*Document
 
 		if _, err := o.QueryTable(NewDocument().TableNameWithPrefix()).Filter("parent_id", docId).All(&subDocs); err != nil && err != orm.ErrNoRows {
-			beego.Error("读取文档时出错 -> ", err)
+			logs.Error("读取文档时出错 -> ", err)
 			return err
 		}
 		if len(subDocs) > 0 {
@@ -463,11 +463,11 @@ func (book *Book) ThoroughDeleteBook(id int) error {
 
 	//删除导出缓存
 	if err := os.RemoveAll(filepath.Join(conf.GetExportOutputPath(), strconv.Itoa(id))); err != nil {
-		beego.Error("删除项目缓存失败 ->", err)
+		logs.Error("删除项目缓存失败 ->", err)
 	}
 	//删除附件和图片
 	if err := os.RemoveAll(filepath.Join(conf.WorkingDirectory, "uploads", book.Identify)); err != nil {
-		beego.Error("删除项目附件和图片失败 ->", err)
+		logs.Error("删除项目附件和图片失败 ->", err)
 	}
 
 	return o.Commit()
@@ -591,7 +591,7 @@ func (book *Book) ReleaseContent(bookId int) {
 		go func() {
 			defer func() {
 				if err := recover(); err != nil {
-					beego.Error("协程崩溃 ->", err)
+					logs.Error("协程崩溃 ->", err)
 				}
 			}()
 			for bookId := range releaseQueue {
@@ -601,7 +601,7 @@ func (book *Book) ReleaseContent(bookId int) {
 				_, err := o.QueryTable(NewDocument().TableNameWithPrefix()).Filter("book_id", bookId).All(&docs)
 
 				if err != nil {
-					beego.Error("发布失败 =>", bookId, err)
+					logs.Error("发布失败 =>", bookId, err)
 					continue
 				}
 				for _, item := range docs {
@@ -625,10 +625,10 @@ func (book *Book) ResetDocumentNumber(bookId int) {
 	if err == nil {
 		_, err = o.Raw("UPDATE md_books SET doc_count = ? WHERE book_id = ?", int(totalCount), bookId).Exec()
 		if err != nil {
-			beego.Error("重置文档数量失败 =>", bookId, err)
+			logs.Error("重置文档数量失败 =>", bookId, err)
 		}
 	} else {
-		beego.Error("获取文档数量失败 =>", bookId, err)
+		logs.Error("获取文档数量失败 =>", bookId, err)
 	}
 }
 
@@ -647,7 +647,7 @@ func (book *Book) ImportBook(zipPath string) error {
 	tempPath := filepath.Join(os.TempDir(), md5str)
 
 	if err := os.MkdirAll(tempPath, 0766); err != nil {
-		beego.Error("创建导入目录出错 => ", err)
+		logs.Error("创建导入目录出错 => ", err)
 	}
 	//如果加压缩失败
 	if err := ziptil.Unzip(zipPath, tempPath); err != nil {
@@ -876,7 +876,7 @@ func (book *Book) ImportBook(zipPath string) error {
 					isInsert = true
 				}
 				if err := doc.InsertOrUpdate("document_name", "markdown", "content"); err != nil {
-					beego.Error(doc.DocumentId, err)
+					logs.Error(doc.DocumentId, err)
 				}
 				if isInsert {
 					docMap[docIdentify] = doc.DocumentId
@@ -910,7 +910,7 @@ func (book *Book) ImportBook(zipPath string) error {
 				parentDoc.ParentId = parentId
 
 				if err := parentDoc.InsertOrUpdate(); err != nil {
-					beego.Error(err)
+					logs.Error(err)
 				}
 
 				docMap[identify] = parentDoc.DocumentId
@@ -922,7 +922,7 @@ func (book *Book) ImportBook(zipPath string) error {
 	})
 
 	if err != nil {
-		beego.Error("导入项目异常 => ", err)
+		logs.Error("导入项目异常 => ", err)
 		book.Description = "【项目导入存在错误：" + err.Error() + "】"
 	}
 	beego.Info("项目导入完毕 => ", book.BookName)
@@ -952,7 +952,7 @@ where mtr.book_id = ? and mtm.member_id = ? order by mtm.role_id asc limit 1;`
 	err = o.Raw(sql, bookId, memberId).QueryRow(&roleId)
 
 	if err != nil {
-		beego.Error("查询用户项目角色出错 -> book_id=", bookId, " member_id=", memberId, err)
+		logs.Error("查询用户项目角色出错 -> book_id=", bookId, " member_id=", memberId, err)
 		return 0, err
 	}
 	return conf.BookRole(roleId), nil

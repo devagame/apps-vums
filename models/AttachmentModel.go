@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/utils/filetil"
@@ -65,7 +66,7 @@ func (m *Attachment) Delete() error {
 
 	if err == nil {
 		if err1 := os.Remove(m.FilePath); err1 != nil {
-			beego.Error(err1)
+			logs.Error(err1)
 		}
 	}
 

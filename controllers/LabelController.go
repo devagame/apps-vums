@@ -3,7 +3,7 @@ package controllers
 import (
 	"math"
 
-	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/models"
@@ -40,7 +40,7 @@ func (c *LabelController) Index() {
 		if err == orm.ErrNoRows {
 			c.Abort("404")
 		} else {
-			beego.Error(err)
+			logs.Error(err)
 			c.Abort("500")
 		}
 	}
@@ -51,7 +51,7 @@ func (c *LabelController) Index() {
 	searchResult, totalCount, err := models.NewBook().FindForLabelToPager(labelName, pageIndex, conf.PageSize, memberId)
 
 	if err != nil && err != orm.ErrNoRows {
-		beego.Error("查询标签时出错 ->", err)
+		logs.Error("查询标签时出错 ->", err)
 		c.ShowErrorPage(500, "查询文档列表时出错")
 	}
 	if totalCount > 0 {

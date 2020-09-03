@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/models"
 	"github.com/devagame/apps-vums/utils"
@@ -40,7 +40,7 @@ func (c *SearchController) Index() {
 		searchResult, totalCount, err := models.NewDocumentSearchResult().FindToPager(sqltil.EscapeLike(keyword), pageIndex, conf.PageSize, memberId)
 
 		if err != nil {
-			beego.Error("搜索失败 ->",err)
+			logs.Error("搜索失败 ->",err)
 			return
 		}
 		if totalCount > 0 {
@@ -101,7 +101,7 @@ func (c *SearchController) User() {
 	//members, err := models.NewMemberRelationshipResult().FindNotJoinUsersByAccount(book.BookId, 10, "%"+keyword+"%")
 	members, err := models.NewMemberRelationshipResult().FindNotJoinUsersByAccountOrRealName(book.BookId, 10, "%"+keyword+"%")
 	if err != nil {
-		beego.Error("查询用户列表出错：" + err.Error())
+		logs.Error("查询用户列表出错：" + err.Error())
 		c.JsonResult(500, err.Error())
 	}
 	result := models.SelectMemberResult{}

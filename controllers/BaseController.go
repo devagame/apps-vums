@@ -9,12 +9,13 @@ import (
 	"time"
 
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/models"
 	"github.com/devagame/apps-vums/utils"
-	"path/filepath"
-	"io/ioutil"
 	"html/template"
+	"io/ioutil"
+	"path/filepath"
 )
 
 type BaseController struct {
@@ -111,7 +112,7 @@ func (c *BaseController) JsonResult(errCode int, errMsg string, data ...interfac
 	returnJSON, err := json.Marshal(jsonData)
 
 	if err != nil {
-		beego.Error(err)
+		logs.Error(err)
 	}
 
 	c.Ctx.ResponseWriter.Header().Set("Content-Type", "application/json; charset=utf-8")
@@ -135,7 +136,7 @@ func (c *BaseController) CheckJsonError(code int,err error) {
 	returnJSON, err := json.Marshal(jsonData)
 
 	if err != nil {
-		beego.Error(err)
+		logs.Error(err)
 	}
 
 	c.Ctx.ResponseWriter.Header().Set("Content-Type", "application/json; charset=utf-8")

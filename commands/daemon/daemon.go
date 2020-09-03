@@ -5,10 +5,11 @@ import (
 	"os"
 
 	"github.com/astaxie/beego"
-	"github.com/kardianos/service"
+	"github.com/astaxie/beego/logs"
 	"github.com/devagame/apps-vums/commands"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/controllers"
+	"github.com/kardianos/service"
 	"path/filepath"
 )
 
@@ -20,9 +21,9 @@ type Daemon struct {
 func NewDaemon() *Daemon {
 
 	config := &service.Config{
-		Name:             "mindocd",                               //服务显示名称
-		DisplayName:      "MinDoc service",                        //服务名称
-		Description:      "A document online management program.", //服务描述
+		Name:             "apps-vums",                             				//服务显示名称
+		DisplayName:      "apps-vums service",                     				//服务名称
+		Description:      "A applications version update management system.", 	//服务描述
 		WorkingDirectory: conf.WorkingDirectory,
 		Arguments:        os.Args[1:],
 	}
@@ -80,12 +81,12 @@ func Install() {
 	s, err := service.New(d, d.config)
 
 	if err != nil {
-		beego.Error("Create service error => ", err)
+		logs.Error("Create service error => ", err)
 		os.Exit(1)
 	}
 	err = s.Install()
 	if err != nil {
-		beego.Error("Install service error:", err)
+		logs.Error("Install service error:", err)
 		os.Exit(1)
 	} else {
 		beego.Info("Service installed!")
@@ -99,12 +100,12 @@ func Uninstall() {
 	s, err := service.New(d, d.config)
 
 	if err != nil {
-		beego.Error("Create service error => ", err)
+		logs.Error("Create service error => ", err)
 		os.Exit(1)
 	}
 	err = s.Uninstall()
 	if err != nil {
-		beego.Error("Install service error:", err)
+		logs.Error("Install service error:", err)
 		os.Exit(1)
 	} else {
 		beego.Info("Service uninstalled!")
@@ -117,12 +118,12 @@ func Restart() {
 	s, err := service.New(d, d.config)
 
 	if err != nil {
-		beego.Error("Create service error => ", err)
+		logs.Error("Create service error => ", err)
 		os.Exit(1)
 	}
 	err = s.Restart()
 	if err != nil {
-		beego.Error("Install service error:", err)
+		logs.Error("Install service error:", err)
 		os.Exit(1)
 	} else {
 		beego.Info("Service Restart!")

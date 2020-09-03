@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"flag"
-	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/models"
@@ -43,13 +43,13 @@ func ModifyPassword() {
 
 	//账号和密码需要解析参数后才能获取
 	if len(os.Args) >= 2 && os.Args[1] == "password" {
-		flagSet := flag.NewFlagSet("MinDoc command: ", flag.ExitOnError)
+		flagSet := flag.NewFlagSet("apps-vums command: ", flag.ExitOnError)
 
 		flagSet.StringVar(&account, "account", "", "用户账号.")
 		flagSet.StringVar(&password, "password", "", "用户密码.")
 
 		if err := flagSet.Parse(os.Args[2:]); err != nil {
-			beego.Error("解析参数失败 -> ",err)
+			logs.Error("解析参数失败 -> ",err)
 			os.Exit(1)
 		}
 
@@ -120,14 +120,14 @@ func initialization() {
 		book := models.NewBook()
 
 		book.MemberId = member.MemberId
-		book.BookName = "MinDoc演示项目"
+		book.BookName = "apps-vums演示项目"
 		book.Status = 0
 		book.ItemId = 1
-		book.Description = "这是一个MinDoc演示项目，该项目是由系统初始化时自动创建。"
+		book.Description = "这是一个apps-vums演示项目，该项目是由系统初始化时自动创建。"
 		book.CommentCount = 0
 		book.PrivatelyOwned = 0
 		book.CommentStatus = "closed"
-		book.Identify = "mindoc"
+		book.Identify = "apps-vums"
 		book.DocCount = 0
 		book.CommentCount = 0
 		book.Version = time.Now().Unix()

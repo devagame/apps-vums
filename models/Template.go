@@ -1,12 +1,11 @@
 package models
 
 import (
-	"time"
-	"github.com/devagame/apps-vums/conf"
-	"github.com/astaxie/beego/orm"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego"
 	"errors"
+	"github.com/astaxie/beego/logs"
+	"github.com/astaxie/beego/orm"
+	"github.com/devagame/apps-vums/conf"
+	"time"
 )
 
 type Template struct {
@@ -72,7 +71,7 @@ func (t *Template) FindByBookId(bookId int) ([]*Template,error) {
 	_,err := o.QueryTable(t.TableNameWithPrefix()).Filter("book_id",bookId).OrderBy("-template_id").All(&templateList)
 
 	if err != nil {
-		beego.Error("查询模板列表失败 ->",err)
+		logs.Error("查询模板列表失败 ->",err)
 	}
 	return templateList,err
 }
@@ -95,7 +94,7 @@ func (t *Template) FindAllByBookId(bookId int) ([]*Template,error) {
 	_,err := qs.SetCond(cond1).OrderBy("-template_id").All(&templateList)
 
 	if err != nil {
-		beego.Error("查询模板列表失败 ->",err)
+		logs.Error("查询模板列表失败 ->",err)
 	}
 	return templateList,err
 }
@@ -115,7 +114,7 @@ func (t *Template) Delete(templateId int,memberId int) error {
 	_,err := qs.Delete()
 
 	if err != nil {
-		beego.Error("删除模板失败 ->",err)
+		logs.Error("删除模板失败 ->",err)
 	}
 	return err
 }
@@ -159,7 +158,7 @@ func (t *Template) Preload() *Template {
 					t.CreateName = m.Account
 				}
 			}else{
-				beego.Error("加载模板所有者失败 ->",err)
+				logs.Error("加载模板所有者失败 ->",err)
 			}
 		}
 		if t.ModifyAt > 0 {

@@ -1,22 +1,23 @@
 package controllers
 
 import (
-	"strings"
-	"github.com/devagame/apps-vums/models"
-	"time"
-	"github.com/astaxie/beego"
-	"github.com/devagame/apps-vums/conf"
-	"github.com/devagame/apps-vums/utils/pagination"
-	"strconv"
-	"fmt"
-	"os"
-	"net/http"
-	"path/filepath"
-	"github.com/astaxie/beego/orm"
-	"html/template"
 	"encoding/json"
+	"fmt"
+	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
+	"github.com/astaxie/beego/orm"
+	"github.com/devagame/apps-vums/conf"
+	"github.com/devagame/apps-vums/models"
 	"github.com/devagame/apps-vums/utils"
+	"github.com/devagame/apps-vums/utils/pagination"
+	"html/template"
+	"net/http"
 	"net/url"
+	"os"
+	"path/filepath"
+	"strconv"
+	"strings"
+	"time"
 )
 
 type BlogController struct {
@@ -249,7 +250,7 @@ func (c *BlogController) ManageSetting() {
 		blog.Password = blogPassword
 
 		if err := blog.Save(); err != nil {
-			beego.Error("保存文章失败 -> ", err)
+			logs.Error("保存文章失败 -> ", err)
 			c.JsonResult(6011, "保存文章失败")
 		} else {
 			c.JsonResult(0, "ok", blog)
@@ -300,7 +301,7 @@ func (c *BlogController) ManageEdit() {
 			blog, err = models.NewBlog().FindByIdAndMemberId(blogId, c.Member.MemberId)
 		}
 		if err != nil {
-			beego.Error("查询文章失败 ->", err)
+			logs.Error("查询文章失败 ->", err)
 			c.JsonResult(6002, "查询文章失败")
 		}
 		if version > 0 && blog.Version != version && cover != "yes" {
@@ -310,7 +311,7 @@ func (c *BlogController) ManageEdit() {
 		if blog.BlogType == 1 {
 			doc, err := models.NewDocument().Find(blog.DocumentId)
 			if err != nil {
-				beego.Error("查询关联项目文档时出错 ->", err)
+				logs.Error("查询关联项目文档时出错 ->", err)
 				c.JsonResult(6003, "查询关联项目文档时出错")
 			}
 			book, err := models.NewBook().Find(doc.BookId)
@@ -323,7 +324,7 @@ func (c *BlogController) ManageEdit() {
 				bookResult, err := models.NewBookResult().FindByIdentify(book.Identify, c.Member.MemberId)
 
 				if err != nil || bookResult.RoleId == conf.BookObserver {
-					beego.Error("FindByIdentify => ", err)
+					logs.Error("FindByIdentify => ", err)
 					c.JsonResult(6002, "关联文档不存在或权限不足")
 				}
 			}
@@ -334,7 +335,7 @@ func (c *BlogController) ManageEdit() {
 			doc.ModifyTime = time.Now()
 			doc.ModifyAt = c.Member.MemberId
 			if err := doc.InsertOrUpdate("markdown", "release", "content", "modify_time", "modify_at"); err != nil {
-				beego.Error("保存关联文档时出错 ->", err)
+				logs.Error("保存关联文档时出错 ->", err)
 				c.JsonResult(6004, "保存关联文档时出错")
 			}
 		}
@@ -345,7 +346,7 @@ func (c *BlogController) ManageEdit() {
 		blog.Modified = time.Now()
 
 		if err := blog.Save("blog_content", "blog_release", "modify_at", "modify_time", "version"); err != nil {
-			beego.Error("保存文章失败 -> ", err)
+			logs.Error("保存文章失败 -> ", err)
 			c.JsonResult(6011, "保存文章失败")
 		} else {
 			c.JsonResult(0, "ok", blog)
@@ -373,7 +374,7 @@ func (c *BlogController) ManageEdit() {
 	if len(blog.AttachList) > 0 {
 		returnJSON, err := json.Marshal(blog.AttachList)
 		if err != nil {
-			beego.Error("序列化文章附件时出错 ->", err)
+			logs.Error("序列化文章附件时出错 ->", err)
 		} else {
 			c.Data["AttachList"] = template.JS(string(returnJSON))
 		}
@@ -483,7 +484,7 @@ func (c *BlogController) Upload() {
 		_, err := models.NewBlog().FindByIdAndMemberId(blogId, c.Member.MemberId)
 
 		if err != nil {
-			beego.Error("查询文章时出错 -> ", err)
+			logs.Error("查询文章时出错 -> ", err)
 			if err == orm.ErrNoRows {
 				c.JsonResult(6006, "权限不足")
 			}
@@ -503,7 +504,7 @@ func (c *BlogController) Upload() {
 	err = c.SaveToFile(name, filePath)
 
 	if err != nil {
-		beego.Error("SaveToFile => ", err)
+		logs.Error("SaveToFile => ", err)
 		c.JsonResult(6005, "保存文件失败")
 	}
 
@@ -536,14 +537,14 @@ func (c *BlogController) Upload() {
 
 		if err := attachment.Insert(); err != nil {
 			os.Remove(filePath)
-			beego.Error("保存文件附件失败 -> ", err)
+			logs.Error("保存文件附件失败 -> ", err)
 			c.JsonResult(6006, "文件保存失败")
 		}
 		if attachment.HttpPath == "" {
 			attachment.HttpPath = conf.URLForNotHost("BlogController.Download", ":id", blogId, ":attach_id", attachment.AttachmentId)
 
 			if err := attachment.Update(); err != nil {
-				beego.Error("保存文件失败 -> ",attachment.FilePath, err)
+				logs.Error("保存文件失败 -> ",attachment.FilePath, err)
 				c.JsonResult(6005, "保存文件失败")
 			}
 		}
@@ -580,7 +581,7 @@ func (c *BlogController) RemoveAttachment() {
 	attach, err := models.NewAttachment().Find(attachId)
 
 	if err != nil {
-		beego.Error(err)
+		logs.Error(err)
 		c.JsonResult(6002, "附件不存在")
 	}
 
@@ -588,7 +589,7 @@ func (c *BlogController) RemoveAttachment() {
 		_, err := models.NewBlog().FindByIdAndMemberId(attach.DocumentId, c.Member.MemberId)
 
 		if err != nil {
-			beego.Error(err)
+			logs.Error(err)
 			c.JsonResult(6003, "文档不存在")
 		}
 	}
@@ -600,7 +601,7 @@ func (c *BlogController) RemoveAttachment() {
 	}
 
 	if err := attach.Delete(); err != nil {
-		beego.Error(err)
+		logs.Error(err)
 		c.JsonResult(6005, "删除失败")
 	}
 
@@ -638,7 +639,7 @@ func (c *BlogController) Download() {
 		if err == orm.ErrNoRows {
 			c.ShowErrorPage(404, "附件不存在")
 		} else {
-			beego.Error("查询附件时出现异常 -> ", err)
+			logs.Error("查询附件时出现异常 -> ", err)
 			c.ShowErrorPage(500, "查询附件时出现异常")
 		}
 	}
