@@ -3,21 +3,48 @@
   <component name="ChangeListManager">
     <list default="true" id="8cf175f8-4ddd-40c6-a873-05456b8f505a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/daemon/daemon.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/daemon/daemon.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/enumerate.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/enumerate.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/AccountController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AccountController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/BookController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BookController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/BookMemberController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BookMemberController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/DocumentController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DocumentController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mail/smtp.go" beforeDir="false" afterPath="$PROJECT_DIR$/mail/smtp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/AttachmentModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/AttachmentModel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Blog.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Blog.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/BookModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/BookModel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/BookResult.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/BookResult.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/DocumentHistory.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/DocumentHistory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/DocumentModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/DocumentModel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/LabelModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/LabelModel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Member.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Member.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mindoc.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/mindoc.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/find_password_setp1.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/find_password_setp1.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/find_password_setp2.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/find_password_setp2.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/login.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/login.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/register.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/register.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog/manage_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/manage_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog/manage_setting.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/manage_setting.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/dashboard.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/dashboard.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/setting.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/setting.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/team.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/team.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/users.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/comment/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/comment/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/items/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/items/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/items/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/items/list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/label/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/label/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/label/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/label/list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/attach_detailed.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/attach_detailed.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/attach_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/attach_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/books.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/books.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/comments.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/comments.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/config.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/config.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/edit_book.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/edit_book.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/edit_users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/edit_users.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/itemsets.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/itemsets.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/label_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/label_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/setting.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/setting.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/team.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/team.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/team_book_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/team_book_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/team_member_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/team_member_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/users.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/search/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/search/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/setting/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/setting/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/setting/password.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/setting/password.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/template.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/widgets/footer.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/widgets/footer.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/widgets/header.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/widgets/header.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +153,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="772" y="252" key="#Plugins/0.0.2560.1400@0.0.2560.1400" timestamp="1598972025927" />
+    <state x="748" y="305" width="807" height="429" key="#Web_Browsers" timestamp="1599202576075">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="748" y="305" width="807" height="429" key="#Web_Browsers/0.0.1920.1040@0.0.1920.1040" timestamp="1599202576075" />
     <state x="695" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599031647648">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -138,9 +169,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1072" y="555" width="780" height="349" key="EnvironmentVariablesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1598973383483" />
-    <state x="1004" y="559" key="FileChooserDialogImpl" timestamp="1598973368049">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="753" y="415" key="FileChooserDialogImpl" timestamp="1599202574513">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="753" y="415" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599202574513" />
     <state x="1004" y="559" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1598973368049" />
     <state width="2507" height="385" key="GridCell.Tab.0.bottom" timestamp="1599049986104">
       <screen x="0" y="0" width="2560" height="1400" />

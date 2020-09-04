@@ -19,7 +19,7 @@
 <body>
 <div class="manual-reader manual-container">
     {{template "widgets/header.tpl" .}}
-    <div class="container manual-body">
+    <div class="container-fluid manual-body">
         <div class="row">
              <div class="manual-list">
                 {{range $index,$item := .Lists}}

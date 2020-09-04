@@ -1,31 +1,39 @@
 body {
     position: relative;
     font-family: Helvetica, -apple-system, "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Microsoft Yahei","Helvetica Neue",Helvetica;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 a{
     text-decoration: none;
 }
+
 a:hover{
     text-decoration: none;
     outline: 0;
 }
+
 textarea{
     resize: none;
 }
+
 .text{
     font-size: 12px;
     color: #999999;
     font-weight: 200;
 }
+
 .error-message{
     color: #d9534f;
     font-size: 12px;
 }
+
 .success-message{
     color: #5cb85c;
     font-size: 12px;
 }
+
 .input-readonly{
     border: 1px solid rgba(34,36,38,.15);
     background-color: #fff !important;
@@ -38,9 +46,11 @@ textarea{
     width: 7px;
     background: #E6E6E6;
 }
+
 ::-webkit-scrollbar:hover {
     background: #CCCCCC;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #A2A2A2;
     -webkit-border-radius: 6px;
@@ -49,39 +59,58 @@ textarea{
     -o-border-radius: 6px;
     border-radius: 6px;
 }
+
 .bootstrap-tagsinput{
     display: block !important;
 }
-.manual-header{
-    margin-bottom: 0;
-    background-color: #fff;
-    border-bottom: 0;
-    box-shadow: rgba(0,0,0,.1)0 1px 5px;
-    border-top: 1px solid #009a61;
+
+.apps-navbar-title {
+    height: 30px;
+    line-height: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    bottom: -7px;
 }
-.manual-header  .navbar-brand,.manual-header a {
+
+.apps-navbar-text {
+    color: #000;
+    font-size: 22px;
+}
+
+.apps-navbar-gray {
+    color: #8b8b8b;
+}
+
+.navbar-brand {
     font-weight: 500;
-    color: #563d7c;
+    color: #000;
     max-width: 300px;
     white-space:nowrap;
     overflow: hidden;
 }
-.manual-header .navbar-nav li.active a{
+
+.vums-header .navbar-nav li.active a{
     background-color: #009a61;
     color: #ffffff;
 }
+
 .manual-reader .slidebar {
     margin: 5px 10px 0 0;
 }
+
 .user-info{
     border: 0;
-    background-color: #ffffff;
-    padding: 5px 10px !important;
+    padding: 3px 10px !important;
     cursor: pointer;
 }
+
 .user-info:hover{
     background-color: #F5F5F5;
 }
+
 .user-info-dropdown a{
     font-size: 14px;
     color: #333333;
@@ -155,25 +184,29 @@ textarea{
 }
 /*********************************/
 .manual-body{
-    margin-top: 53px;
+    //margin-top: 53px;
+    background-color: #ffffff;
+    border: 1px solid #DDDDD9;
+    border-radius: 4px;
 }
 .manual-body .page-left{
-    position: fixed;
+    //position: fixed;
     overflow: auto;
-    top: 50px;
-    bottom: 0;
     z-index: 100;
     width: 199px;
     background-color: #f5f5f5;
-    border-right: 1px solid #eaeaea
+    border-right: 1px solid #eaeaea;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float:left;
 }
 
 .manual-body .page-left .menu {
-    padding: 18px 0
+    padding: 18px 0;
 }
 .manual-body .page-left .menu li {
     height: 36px;
-    line-height: 0
+    line-height: 0;
 }
 .manual-body .page-left .menu .item {
     display: block;
@@ -197,7 +230,7 @@ textarea{
     background-color: #DDB;
 }
 .manual-body .page-right {
-    padding: 15px 0 15px 24px;
+    padding: 15px 24px 15px 24px;
     margin-left: 200px;
     min-width: 400px;
 }
@@ -291,7 +324,7 @@ textarea{
     max-width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden
+    overflow: hidden;
 }
 .manual-list .list-item .manual-item-standard a.name:hover{
     color: #333333;
@@ -365,7 +398,7 @@ textarea{
     border-bottom: 1px dotted #EEE;
 }
 .users-list .list-item:hover {
-    background-color: #F9F9F9
+    background-color: #F9F9F9;
 }
 .users-list .list-item .operate{
     float: right;
@@ -381,7 +414,7 @@ textarea{
     margin-top: -10px;
     margin-left: -45px;
     border: 0;
-    background-color: transparent
+    background-color: transparent;
 }
 .searchbar .search-btn>i.fa{
     padding: 10px;
@@ -644,7 +677,7 @@ textarea{
     transition: -webkit-box-shadow .1s ease;
     transition: box-shadow .1s ease;
     transition: box-shadow .1s ease,-webkit-box-shadow .1s ease;
-    z-index: ''
+    z-index: '';
 }
 
 .ui.items>.item a {
@@ -971,6 +1004,7 @@ textarea{
     text-align: center;
     color: #333333;
 }
+
 .ui-card:hover{
     -webkit-box-shadow: 0 1px 3px 0 #d4d4d5,0 0 0 1px #d4d4d5;
     box-shadow: 0 1px 3px 0 #d4d4d5,0 0 0 1px #d4d4d5;
@@ -979,15 +1013,18 @@ textarea{
     transition: box-shadow .1s ease,transform .1s ease;
     transition: box-shadow .1s ease,transform .1s ease,-webkit-box-shadow .1s ease,-webkit-transform .1s ease;
 }
+
 .ui-card>.header{
     font-weight: 500;
     font-size: 18px;
 }
+
 .ui-card>.description{
     font-size: 12px;
     color: #666;
     text-align: left;
 }
+
 /**************网站底部样式*************************/
 .footer{
     color: #777;
@@ -997,29 +1034,36 @@ textarea{
     background-color: #ffffff;
     bottom: 0;
 }
+
 .footer .container{
     padding: 0;
 }
+
 .footer .container .row{
-    margin-left: 220px;
+    //margin-left: 220px;
     padding-top: 20px;
     opacity : 0.8;
     font-size: 13px;
 }
+
 .footer .container .border-top{
     border-top: 2px solid #DDDDD9;
 }
+
 .manual-container .footer .container .row{
     margin-left: 0;
+    margin-right: 0;
 }
 
 .footer a{
     color: #222;
     text-decoration: none;
 }
+
 .footer a:hover {
     color: #2b85ae
 }
+
 @media screen and (max-width: 840px) {
     .manual-body .page-left{
         display: none;

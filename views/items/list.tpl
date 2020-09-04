@@ -17,7 +17,7 @@
 <body>
 <div class="manual-reader manual-container manual-search-reader">
 {{template "widgets/header.tpl" .}}
-    <div class="container manual-body">
+    <div class="container-fluid manual-body">
         <div class="search-head">
             <strong class="search-title">显示项目空间为"{{.Model.ItemName}}"的项目</strong>
         </div>

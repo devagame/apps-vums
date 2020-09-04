@@ -17,7 +17,7 @@
 <body>
 <div class="manual-reader manual-container manual-search-reader">
     {{template "widgets/header.tpl" .}}
-    <div class="container manual-body">
+    <div class="container-fluid manual-body">
         <div class="search-head">
             <strong class="search-title">显示"{{.Keyword}}"的搜索结果</strong>
         </div>

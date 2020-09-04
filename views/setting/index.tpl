@@ -24,7 +24,7 @@
 <body>
 <div class="manual-reader">
     {{template "widgets/header.tpl" .}}
-    <div class="container manual-body">
+    <div class="container-fluid manual-body">
         <div class="row">
             <div class="page-left">
                 <ul class="menu">

@@ -30,7 +30,7 @@
         </div>
     </div>
 </header>
-<div class="container manual-body">
+<div class="container-fluid manual-body">
     <div class="row login">
         <div class="login-body">
             <form role="form" method="post" id="registerForm">

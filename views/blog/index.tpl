@@ -74,7 +74,7 @@
 <body>
 <div class="manual-reader manual-container manual-search-reader">
 {{template "widgets/header.tpl" .}}
-    <div class="container manual-body">
+    <div class="container-fluid manual-body">
         <div class="search-head" style="border-bottom-width: 1px;">
             <h1 class="header">
                {{.Model.BlogTitle}}
