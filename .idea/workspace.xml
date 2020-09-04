@@ -5,45 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/mindoc.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/mindoc.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/account/find_password_setp1.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/find_password_setp1.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/account/find_password_setp2.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/find_password_setp2.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/account/login.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/login.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/account/register.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/register.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/blog/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/blog/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/blog/manage_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/manage_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/blog/manage_setting.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/manage_setting.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/book/dashboard.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/dashboard.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/book/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/book/setting.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/setting.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/book/team.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/team.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/book/users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/users.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/comment/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/comment/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/items/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/items/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/items/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/items/list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/label/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/label/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/label/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/label/list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/attach_detailed.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/attach_detailed.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/attach_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/attach_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/books.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/books.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/comments.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/comments.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/config.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/config.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/edit_book.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/edit_book.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/edit_users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/edit_users.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/itemsets.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/itemsets.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/label_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/label_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/setting.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/setting.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/team.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/team.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/team_book_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/team_book_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/team_member_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/team_member_list.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manager/users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/users.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/search/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/search/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/setting/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/setting/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/setting/password.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/setting/password.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/template.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/widgets/footer.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/widgets/footer.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/widgets/header.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/widgets/header.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
