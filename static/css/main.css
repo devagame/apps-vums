@@ -420,7 +420,7 @@ textarea{
     padding: 10px;
 }
 .manual-search-reader .manual-body{
-    margin-top: 60px;
+    //margin-top: 60px;
 }
 .manual-search-reader .search-head{
     margin: 10px auto;
