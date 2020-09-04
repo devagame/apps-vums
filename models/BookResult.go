@@ -482,7 +482,7 @@ func (m *BookResult) Converter(sessionId string) (ConvertBookResult, error) {
 		logs.Error("转换文件错误：" + m.BookName + " -> " + err.Error())
 		return convertBookResult, err
 	}
-	beego.Info("文档转换完成：" + m.BookName)
+	logs.Info("文档转换完成：" + m.BookName)
 
 	if err := filetil.CopyFile(filepath.Join(eBookConverter.OutputPath, "output", "book.mobi"), mobipath, ); err != nil {
 		logs.Error("复制文档失败 -> ", filepath.Join(eBookConverter.OutputPath, "output", "book.mobi"), err)
@@ -643,7 +643,7 @@ func exportMarkdown(p string, parentId int, bookId int, baseDir string, bookUrl 
 							relative = strings.TrimSuffix(strings.TrimPrefix(relative, "/"), "/")
 							repeat = strings.Count(relative, "/") + 1
 						}
-						beego.Info(repeat, "|", relative, "|", p, "|", baseDir)
+						logs.Info(repeat, "|", relative, "|", p, "|", baseDir)
 						tempLink = strings.Repeat("../", repeat) + tempLink
 
 						link = strings.TrimSuffix(link, originalLink+")") + tempLink + ")"

@@ -189,7 +189,7 @@ func (m *Member) httpLogin(account, password string) (*Member, error) {
 		logs.Error("读取接口返回值失败 -> ", urlStr, account, err)
 		return nil, err
 	}
-	beego.Info("HTTP 登录接口返回数据 ->", string(body))
+	logs.Info("HTTP 登录接口返回数据 ->", string(body))
 
 	var result map[string]interface{}
 

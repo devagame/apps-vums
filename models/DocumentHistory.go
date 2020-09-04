@@ -3,9 +3,9 @@ package models
 import (
 	"time"
 
+	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/conf"
-	"github.com/astaxie/beego"
 )
 
 type DocumentHistory struct {
@@ -133,7 +133,7 @@ func (m *DocumentHistory) InsertOrUpdate() (history *DocumentHistory, err error)
 					if c,e := o.QueryTable(m.TableNameWithPrefix()).Filter("document_id",doc.DocumentId).Count(); e == nil && c > int64(book.HistoryCount) {
 
 						count := c - int64(book.HistoryCount)
-						beego.Info("需要删除的历史文档数量：" ,count)
+						logs.Info("需要删除的历史文档数量：" ,count)
 						var lists []DocumentHistory
 
 						if _,e := o.QueryTable(m.TableNameWithPrefix()).Filter("document_id",doc.DocumentId).OrderBy("history_id").Limit(count).All(&lists,"history_id"); e == nil {
@@ -142,7 +142,7 @@ func (m *DocumentHistory) InsertOrUpdate() (history *DocumentHistory, err error)
 							}
 						}
 					}else{
-						beego.Info(book.HistoryCount)
+						logs.Info(book.HistoryCount)
 					}
 				}
 			}

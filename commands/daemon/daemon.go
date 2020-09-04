@@ -89,7 +89,7 @@ func Install() {
 		logs.Error("Install service error:", err)
 		os.Exit(1)
 	} else {
-		beego.Info("Service installed!")
+		logs.Info("Service installed!")
 	}
 
 	os.Exit(0)
@@ -108,7 +108,7 @@ func Uninstall() {
 		logs.Error("Install service error:", err)
 		os.Exit(1)
 	} else {
-		beego.Info("Service uninstalled!")
+		logs.Info("Service uninstalled!")
 	}
 	os.Exit(0)
 }
@@ -126,7 +126,7 @@ func Restart() {
 		logs.Error("Install service error:", err)
 		os.Exit(1)
 	} else {
-		beego.Info("Service Restart!")
+		logs.Info("Service Restart!")
 	}
 	os.Exit(0)
 }

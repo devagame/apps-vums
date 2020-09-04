@@ -164,11 +164,11 @@ func (item *Document) PutToCache() {
 		if m.Identify == "" {
 
 			if err := cache.Put("Document.Id."+strconv.Itoa(m.DocumentId), m, time.Second*3600); err != nil {
-				beego.Info("文档缓存失败:", m.DocumentId)
+				logs.Info("文档缓存失败:", m.DocumentId)
 			}
 		} else {
 			if err := cache.Put(fmt.Sprintf("Document.BookId.%d.Identify.%s", m.BookId, m.Identify), m, time.Second*3600); err != nil {
-				beego.Info("文档缓存失败:", m.DocumentId)
+				logs.Info("文档缓存失败:", m.DocumentId)
 			}
 		}
 
@@ -190,7 +190,7 @@ func (item *Document) RemoveCache() {
 func (item *Document) FromCacheById(id int) (*Document, error) {
 
 	if err := cache.Get("Document.Id."+strconv.Itoa(id), &item); err == nil && item.DocumentId > 0 {
-		beego.Info("从缓存中获取文档信息成功 ->", item.DocumentId)
+		logs.Info("从缓存中获取文档信息成功 ->", item.DocumentId)
 		return item, nil
 	}
 
@@ -211,7 +211,7 @@ func (item *Document) FromCacheByIdentify(identify string, bookId int) (*Documen
 	key := fmt.Sprintf("Document.BookId.%d.Identify.%s", bookId, identify)
 
 	if err := cache.Get(key, item); err == nil && item.DocumentId > 0 {
-		beego.Info("从缓存中获取文档信息成功 ->", key)
+		logs.Info("从缓存中获取文档信息成功 ->", key)
 		return item, nil
 	}
 

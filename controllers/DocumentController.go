@@ -721,7 +721,7 @@ func (c *DocumentController) Content() {
 		}
 
 		if doc.Version != version && !strings.EqualFold(isCover, "yes") {
-			beego.Info("%d|", version, doc.Version)
+			logs.Info("%d|", version, doc.Version)
 			c.JsonResult(6005, "文档已被修改确定要覆盖吗？")
 		}
 
@@ -1239,7 +1239,7 @@ func (c *DocumentController) isReadable(identify, token string) *models.BookResu
 				if token != "" && strings.EqualFold(token, book.PrivateToken) {
 					c.SetSession(identify, token)
 				} else if token, ok := c.GetSession(identify).(string); !ok || !strings.EqualFold(token, book.PrivateToken) {
-					beego.Info("尝试访问文档但权限不足 ->", identify, token)
+					logs.Info("尝试访问文档但权限不足 ->", identify, token)
 					c.ShowErrorPage(403, "权限不足")
 				}
 			} else if password := c.GetString("bPassword", ""); !isOk && book.BookPassword != "" && password != "" {
@@ -1264,7 +1264,7 @@ func (c *DocumentController) isReadable(identify, token string) *models.BookResu
 						c.CustomAbort(200, body)
 					}
 				} else {
-					beego.Info("尝试访问文档但权限不足 ->", identify, token)
+					logs.Info("尝试访问文档但权限不足 ->", identify, token)
 					c.ShowErrorPage(403, "权限不足")
 				}
 			}
@@ -1275,8 +1275,8 @@ func (c *DocumentController) isReadable(identify, token string) *models.BookResu
 }
 
 func promptUserToLogIn(c *DocumentController) {
-	beego.Info("Access " + c.Ctx.Request.URL.RequestURI() + " not permitted.")
-	beego.Info("  Access will be redirected to login page(SessionId: " + c.CruSession.SessionID() + ").")
+	logs.Info("Access " + c.Ctx.Request.URL.RequestURI() + " not permitted.")
+	logs.Info("  Access will be redirected to login page(SessionId: " + c.CruSession.SessionID() + ").")
 
 	if c.IsAjax() {
 		c.JsonResult(6000, "请重新登录。")

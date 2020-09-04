@@ -6,7 +6,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/mail"
@@ -288,7 +287,7 @@ func (c *AccountController) FindPassword() {
 				Secure:   mailConf.Secure,
 				Identity: "",
 			}
-			beego.Info(mailConfig)
+			logs.Info(mailConfig)
 
 			c := mail.NewSMTPClient(mailConfig)
 			m := mail.NewMail()
@@ -302,7 +301,7 @@ func (c *AccountController) FindPassword() {
 			if e := c.Send(m); e != nil {
 				logs.Error("发送邮件失败：" + e.Error())
 			} else {
-				beego.Info("邮件发送成功：" + email)
+				logs.Info("邮件发送成功：" + email)
 			}
 			//auth := smtp.PlainAuth(
 			//	"",

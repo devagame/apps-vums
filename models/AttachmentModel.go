@@ -8,7 +8,6 @@ import (
 
 	"strings"
 
-	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/conf"
@@ -110,7 +109,7 @@ func (m *Attachment) FindToPager(pageIndex, pageSize int) (attachList []*Attachm
 
 	if err != nil {
 		if err == orm.ErrNoRows {
-			beego.Info("没有查到附件 ->",err)
+			logs.Info("没有查到附件 ->",err)
 			err = nil
 		}
 		return

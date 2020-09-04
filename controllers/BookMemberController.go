@@ -7,7 +7,6 @@ import (
 	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/models"
-	"github.com/astaxie/beego"
 )
 
 type BookMemberController struct {
@@ -19,7 +18,7 @@ func (c *BookMemberController) AddMember() {
 	identify := c.GetString("identify")
 	account,_ := c.GetInt("account")
 	roleId, _ := c.GetInt("role_id", 3)
-	beego.Info(account)
+	logs.Info(account)
 	if identify == "" || account <= 0 {
 		c.JsonResult(6001, "参数错误")
 	}

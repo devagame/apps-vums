@@ -15,7 +15,6 @@ import (
 	"time"
 
 	"encoding/json"
-	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/devagame/apps-vums/conf"
@@ -692,7 +691,7 @@ func (book *Book) ImportBook(zipPath string) error {
 			ext := filepath.Ext(info.Name())
 			//如果是Markdown文件
 			if strings.EqualFold(ext, ".md") || strings.EqualFold(ext, ".markdown") {
-				beego.Info("正在处理 =>", path, info.Name())
+				logs.Info("正在处理 =>", path, info.Name())
 				doc := NewDocument()
 				doc.BookId = book.BookId
 				doc.MemberId = book.MemberId
@@ -795,11 +794,11 @@ func (book *Book) ImportBook(zipPath string) error {
 						//如果本地存在该链接
 						if filetil.FileExists(linkPath) {
 							ext := filepath.Ext(linkPath)
-							//beego.Info("当前后缀 -> ",ext)
+							//logs.Info("当前后缀 -> ",ext)
 							//如果链接是Markdown文件，则生成文档标识,否则，将目标文件复制到项目目录
 							if strings.EqualFold(ext, ".md") || strings.EqualFold(ext, ".markdown") {
 								docIdentify := strings.Replace(strings.TrimPrefix(strings.Replace(linkPath, "\\", "/", -1), tempPath+"/"), "/", "-", -1)
-								//beego.Info(originalLink, "|", linkPath, "|", docIdentify)
+								//logs.Info(originalLink, "|", linkPath, "|", docIdentify)
 								if ok, err := regexp.MatchString(`[a-z]+[a-zA-Z0-9_.\-]*$`, docIdentify); !ok || err != nil {
 									docIdentify = "import-" + docIdentify
 								}
@@ -818,7 +817,7 @@ func (book *Book) ImportBook(zipPath string) error {
 
 							}
 						} else {
-							beego.Info("文件不存在 ->", linkPath)
+							logs.Info("文件不存在 ->", linkPath)
 						}
 					}
 
@@ -828,7 +827,7 @@ func (book *Book) ImportBook(zipPath string) error {
 				//codeRe := regexp.MustCompile("```\\w+")
 
 				//doc.Markdown = codeRe.ReplaceAllStringFunc(doc.Markdown, func(s string) string {
-				//	//beego.Info(s)
+				//	//logs.Info(s)
 				//	return strings.Replace(s,"```","``` ",-1)
 				//})
 
@@ -862,16 +861,16 @@ func (book *Book) ImportBook(zipPath string) error {
 					}
 				}
 				if strings.EqualFold(info.Name(), "README.md") {
-					beego.Info(path, "|", info.Name(), "|", parentIdentify, "|", parentId)
+					logs.Info(path, "|", info.Name(), "|", parentIdentify, "|", parentId)
 				}
 				isInsert := false
 				//如果当前文件是README.md，则将内容更新到父级
 				if strings.EqualFold(info.Name(), "README.md") && parentId != 0 {
 
 					doc.DocumentId = parentId
-					//beego.Info(path,"|",parentId)
+					//logs.Info(path,"|",parentId)
 				} else {
-					//beego.Info(path,"|",parentIdentify)
+					//logs.Info(path,"|",parentIdentify)
 					doc.ParentId = parentId
 					isInsert = true
 				}
@@ -885,7 +884,7 @@ func (book *Book) ImportBook(zipPath string) error {
 		} else {
 			//如果当前目录下存在Markdown文件，则需要创建此节点
 			if filetil.HasFileOfExt(path, []string{".md", ".markdown"}) {
-				beego.Info("正在处理 =>", path, info.Name())
+				logs.Info("正在处理 =>", path, info.Name())
 				identify := strings.Replace(strings.Trim(strings.TrimPrefix(path, tempPath), "/"), "/", "-", -1)
 				if ok, err := regexp.MatchString(`[a-z]+[a-zA-Z0-9_.\-]*$`, identify); !ok || err != nil {
 					identify = "import-" + identify
@@ -914,7 +913,7 @@ func (book *Book) ImportBook(zipPath string) error {
 				}
 
 				docMap[identify] = parentDoc.DocumentId
-				//beego.Info(path,"|",parentDoc.DocumentId,"|",identify,"|",info.Name(),"|",parentIdentify)
+				//logs.Info(path,"|",parentDoc.DocumentId,"|",identify,"|",info.Name(),"|",parentIdentify)
 			}
 		}
 
@@ -925,7 +924,7 @@ func (book *Book) ImportBook(zipPath string) error {
 		logs.Error("导入项目异常 => ", err)
 		book.Description = "【项目导入存在错误：" + err.Error() + "】"
 	}
-	beego.Info("项目导入完毕 => ", book.BookName)
+	logs.Info("项目导入完毕 => ", book.BookName)
 	book.ReleaseContent(book.BookId)
 	return err
 }

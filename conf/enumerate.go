@@ -4,11 +4,11 @@ package conf
 import (
 	"strings"
 
-	"github.com/astaxie/beego"
-	"strconv"
-	"path/filepath"
-	"os"
 	"fmt"
+	"github.com/astaxie/beego"
+	"os"
+	"path/filepath"
+	"strconv"
 )
 
 // 登录用户的Session名
