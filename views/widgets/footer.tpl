@@ -1,5 +1,12 @@
 <div class="footer">
-    <div class="container">
+    <div class="container-fluid">
+        <div class="row text-center border-top">
+            <span><a href="https://www.iminho.me" target="_blank">© 2020 DEVA GAME</a></span>
+        </div>
+    </div>
+
+    <!--
+    <div class="container-fluid">
         <div class="row text-center border-top">
             <span><a href="https://www.iminho.me" target="_blank">官方网站</a></span>
             <span>&nbsp;·&nbsp;</span>
@@ -15,4 +22,5 @@
         </div>
         {{end}}
     </div>
+    -->
 </div>

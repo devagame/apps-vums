@@ -1,11 +1,8 @@
-
 <div class="row">
     <div class="col-md-12">
         <div class="apps-navbar-title">
             <span class="apps-navbar-text"> <!-- 主标题，如需修改请替换后方标签内的文字 -->
-                <em>
-                    迪哇版本更新管理系统 <small><span class="apps-navbar-gray">KIFT</span></small>
-                </em>
+                <em>迪哇游戏版本更新管理系统 <small><span class="apps-navbar-gray">KIFT</span></small></em>
             </span>
         </div>
         <hr>
@@ -41,16 +38,17 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">运维 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">服务器状态</a></li>
+                        <li><a href="#">服务器流量监控</a></li>
+                        <li><a href="#">服务器日志</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">计划任务</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">CDN AND OSS 状态</a></li>
+                        <li><a href="#">CDN AND OSS 流量监控</a></li>
+                        <li><a href="#">CDN AND OSS 日志</a></li>
                     </ul>
                 </li>
-
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

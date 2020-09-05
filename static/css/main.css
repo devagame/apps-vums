@@ -184,13 +184,10 @@ textarea{
 }
 /*********************************/
 .manual-body{
-    //margin-top: 53px;
     background-color: #ffffff;
-    //border: 1px solid #DDDDD9;
-    //border-radius: 4px;
 }
+
 .manual-body .page-left{
-    //position: fixed;
     overflow: auto;
     z-index: 100;
     width: 199px;
@@ -271,19 +268,25 @@ textarea{
     top: 34px
 }
 /*************网站首页******************/
-.manual-list{
-    margin: 15px auto;
+.apps-manual-list{
+    margin-left: -15px;
+    margin-right: -15px;
 }
+
+.apps-manual-desc{
+    height: 30px;
+}
+
 .manual-list .list-item{
     float: left;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 18px 0;
-    height: 280px
+    //padding-left: 10px;
+    //padding-right: 15px;
+    //margin: 18px 0;
+    height: 580px
 }
 .manual-list .list-item .manual-item-standard{
     float: left;
-    width: 163px;
+    width: 385px;
     line-height: 1.5em;
     position: relative;
 }
@@ -1035,22 +1038,22 @@ textarea{
     bottom: 0;
 }
 
-.footer .container{
+.footer .container-fluid{
     padding: 0;
 }
 
-.footer .container .row{
+.footer .container-fluid .row{
     //margin-left: 220px;
     padding-top: 20px;
     opacity : 0.8;
     font-size: 13px;
 }
 
-.footer .container .border-top{
-    border-top: 2px solid #DDDDD9;
+.footer .container-fluid .border-top{
+    border-top: 1px solid #DDDDD9;
 }
 
-.manual-container .footer .container .row{
+.manual-container .footer .container-fluid .row{
     margin-left: 0;
     margin-right: 0;
 }

@@ -8,10 +8,10 @@ import (
 	_ "github.com/astaxie/beego/session/memcache"
 	_ "github.com/astaxie/beego/session/mysql"
 	_ "github.com/astaxie/beego/session/redis"
-	"github.com/kardianos/service"
 	"github.com/devagame/apps-vums/commands"
 	"github.com/devagame/apps-vums/commands/daemon"
 	_ "github.com/devagame/apps-vums/routers"
+	"github.com/kardianos/service"
 	_ "github.com/mattn/go-sqlite3"
 )
 
