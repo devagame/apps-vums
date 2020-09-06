@@ -33,14 +33,8 @@
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> 操作 <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="#">服务器状态</a></li>
-                                        <li><a href="#">服务器流量监控</a></li>
-                                        <li><a href="#">服务器日志</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="#">计划任务</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">CDN AND OSS 状态</a></li>
-                                        <li><a href="#">CDN AND OSS 流量监控</a></li>
-                                        <li><a href="#">CDN AND OSS 日志</a></li>
+                                        <li><a href="#">设置</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -60,26 +54,42 @@
                                     <th class="text-center"> Android </th>
                                     <th class="text-center"> IOS </th>
                                     <th class="text-center"> Windows64 </th>
+                                    <th class="text-center"> MacOS </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td class="text-center"><span class="label label-primary">v0.1.0.862</span></td>
+                                    <td class="text-center"><span class="label label-warning">v0.1.0.662</span></td>
                                     <td class="text-center"><span class="label label-primary">v0.1.0.662</span></td>
                                     <td class="text-center"><span class="label label-primary">v0.1.0.662</span></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center"><span class="label label-default">v0.1.0.862</span></td>
-                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
+                                    <td class="text-center"><span class="label label-primary">v0.1.0.662</span></td>
                                     <td class="text-center"><span class="label label-default"></span></td>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center"><span class="label label-default">v0.1.0.862</span></td>
                                     <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
                                     <td class="text-center"><span class="label label-default"></span></td>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-right small" colspan="3">
+                                    <td class="text-center"><span class="label label-default">v0.1.0.862</span></td>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
+                                    <td class="text-center"><span class="label label-default"></span></td>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.862</span></td>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
+                                    <td class="text-center"><span class="label label-default"></span></td>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right small" colspan="4">
                                         <em> 负责人: {{if eq $item.RealName "" }} {{$item.CreateName}} {{else}} {{$item.RealName}} {{end}} </em>
                                     </td>
                                 </tr>
