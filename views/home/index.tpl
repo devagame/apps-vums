@@ -26,9 +26,24 @@
                 {{range $index,$item := .Lists}}
                 <div class="col-sm-6 col-md-4">
                     <div class="panel panel-default">
-                        <!-- Default panel contents -->
-                        <div class="panel-heading">
-                            {{$item.BookName}}
+                        <div class="panel-heading col-lg-12">
+                            <div class="pull-left">{{$item.BookName}}</div>
+                            <div class="pull-right">
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> 操作 <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">服务器状态</a></li>
+                                        <li><a href="#">服务器流量监控</a></li>
+                                        <li><a href="#">服务器日志</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">计划任务</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">CDN AND OSS 状态</a></li>
+                                        <li><a href="#">CDN AND OSS 流量监控</a></li>
+                                        <li><a href="#">CDN AND OSS 日志</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
                         <!--
@@ -49,13 +64,23 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="text-center"><span class="label label-default">v0.1.0.862</span></td>
-                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
-                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
+                                    <td class="text-center"><span class="label label-primary">v0.1.0.862</span></td>
+                                    <td class="text-center"><span class="label label-primary">v0.1.0.662</span></td>
+                                    <td class="text-center"><span class="label label-primary">v0.1.0.662</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-right" colspan="3">
-                                        <em>负责人: {{if eq $item.RealName "" }}{{$item.CreateName}}{{else}}{{$item.RealName}}{{end}}</em>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.862</span></td>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
+                                    <td class="text-center"><span class="label label-default"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.862</span></td>
+                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
+                                    <td class="text-center"><span class="label label-default"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right small" colspan="3">
+                                        <em> 负责人: {{if eq $item.RealName "" }} {{$item.CreateName}} {{else}} {{$item.RealName}} {{end}} </em>
                                     </td>
                                 </tr>
                             </tbody>
@@ -83,9 +108,7 @@
             </nav>
         </div>
     </div>
-
     {{template "widgets/footer.tpl" .}}
-
 </div>
 <script src="{{cdnjs "/static/jquery/1.12.4/jquery.min.js"}}" type="text/javascript"></script>
 <script src="{{cdnjs "/static/bootstrap/js/bootstrap.min.js"}}" type="text/javascript"></script>
