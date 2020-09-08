@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8cf175f8-4ddd-40c6-a873-05456b8f505a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/ItemsetsController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ItemsetsController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/HomeController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/HomeController.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/mindoc.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/mindoc.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/home/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/items/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/items/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/items/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/items/list.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

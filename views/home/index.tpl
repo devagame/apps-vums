@@ -83,12 +83,6 @@
                                     <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
                                 </tr>
                                 <tr>
-                                    <td class="text-center"><span class="label label-default">v0.1.0.862</span></td>
-                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
-                                    <td class="text-center"><span class="label label-default"></span></td>
-                                    <td class="text-center"><span class="label label-default">v0.1.0.662</span></td>
-                                </tr>
-                                <tr>
                                     <td class="text-right small" colspan="4">
                                         <em> 负责人: {{if eq $item.RealName "" }} {{$item.CreateName}} {{else}} {{$item.RealName}} {{end}} </em>
                                     </td>
@@ -111,9 +105,7 @@
 
         <div class="row">
             <nav class="pagination-container">
-                {{if gt .TotalPages 1}}
                 {{.PageHtml}}
-                {{end}}
                 <div class="clearfix"></div>
             </nav>
         </div>

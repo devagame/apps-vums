@@ -5,7 +5,6 @@ import (
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/models"
 	"github.com/devagame/apps-vums/utils/pagination"
-	"math"
 	"net/url"
 )
 
@@ -26,7 +25,7 @@ func (c *HomeController) Index() {
 	c.TplName = "home/index.tpl"
 
 	pageIndex, _ := c.GetInt("page", 1)
-	pageSize := 18
+	pageSize := 6
 
 	memberId := 0
 
@@ -39,13 +38,12 @@ func (c *HomeController) Index() {
 		logs.Error(err)
 		c.Abort("500")
 	}
-	if totalCount > 0 {
+	if totalCount > pageSize {
 		pager := pagination.NewPagination(c.Ctx.Request, totalCount, pageSize, c.BaseUrl())
 		c.Data["PageHtml"] = pager.HtmlPages()
 	} else {
 		c.Data["PageHtml"] = ""
 	}
-	c.Data["TotalPages"] = int(math.Ceil(float64(totalCount) / float64(pageSize)))
 
 	c.Data["Lists"] = books
 }
