@@ -21,30 +21,53 @@
 <div class="manual-reader manual-container manual-search-reader">
 {{template "widgets/header.tpl" .}}
     <div class="container-fluid manual-body">
-        <div class="search-head">
+        <div class="apps-manual-list search-head">
             <strong class="search-title">项目空间列表</strong>
         </div>
-        <div class="row">
-            <div class="hide tag-container-outer" style="border: 0;margin-top: 0;padding: 5px 15px;min-height: 200px;">
-                <div class="attach-list" id="ItemsetsList">
-                {{range $index,$item := .Lists}}
-                    <a href="{{urlfor "ItemsetsController.List" ":key" $item.ItemKey}}" class="ui-card" title="{{$item.ItemName}}">
-                    <div class="header">{{$item.ItemName}}</div>
-                        <div class="description">项目数量:{{$item.BookNumber}} &nbsp; 创建人：{{$item.CreateName}}<br/> 创建时间：{{$item.CreateTimeString}}</div>
-                    </a>
-                {{else}}
-                    <div class="search-empty">
-                        <img src="{{cdnimg "/static/images/search_empty.png"}}" class="empty-image">
-                        <span class="empty-text">没有项目空间</span>
-                    </div>
-                {{end}}
-                </div>
-            </div>
 
+        <div class="row">
+            <div class="apps-manual-list">
+            {{range $index,$item := .Lists}}
+                <div class="col-sm-6 col-md-4">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading col-lg-12">
+                            <div class="pull-left">
+                                <a href="{{urlfor "ItemsetsController.List" ":key" $item.ItemKey}}" title="{{$item.ItemName}}">{{$item.ItemName}}</a>
+                            </div>
+                            <div class="pull-right">
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> 操作 <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">服务器状态</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="#">设置</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-body">
+                            项目数量:{{$item.BookNumber}}
+                            创建人：{{$item.CreateName}}
+                        </div>
+
+                        <div class="panel-footer">
+                            <div class="text-right">创建时间：{{$item.CreateTimeString}}</div>
+                        </div>
+                    </div>
+                </div>
+            {{else}}
+                <div class="search-empty">
+                    <span class="empty-text">没有项目空间</span>
+                </div>
+            {{end}}
+            </div>
+        </div>
+
+        <div class="row">
             <nav class="pagination-container">
-            {{if gt .TotalPages 1}}
                 {{.PageHtml}}
-                {{end}}
                 <div class="clearfix"></div>
             </nav>
         </div>
