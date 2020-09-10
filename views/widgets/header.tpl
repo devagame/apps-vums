@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="apps-navbar-title">
             <span class="apps-navbar-text"> <!-- 主标题，如需修改请替换后方标签内的文字 -->
-                <em>迪哇游戏版本更新管理系统 <small><span class="apps-navbar-gray">KIFT</span></small></em>
+                <em>{{.SITE_NAME}} <small><span class="apps-navbar-gray">KIFT</span></small></em>
             </span>
         </div>
         <hr>
@@ -28,9 +28,11 @@
                 <li {{if eq .ControllerName "HomeController"}}class="active"{{end}}>
                     <a href="{{urlfor "HomeController.Index" }}" title="首页">首页</a>
                 </li>
+
                 <li {{if eq .ControllerName "BlogController"}}{{if eq  .ActionName "List" "Index"}}class="active"{{end}}{{end}}>
                     <a href="{{urlfor "BlogController.List" }}" title="文章">文章</a>
                 </li>
+
                 <li {{if eq .ControllerName "ItemsetsController"}}class="active"{{end}}>
                     <a href="{{urlfor "ItemsetsController.Index" }}" title="项目">项目</a>
                 </li>
