@@ -23,7 +23,7 @@ func (c *ItemsetsController) Prepare() {
 func (c *ItemsetsController) Index() {
 	c.Prepare()
 	c.TplName = "items/index.tpl"
-	pageSize := 3
+	pageSize := 6
 
 	pageIndex, _ := c.GetInt("page", 0)
 

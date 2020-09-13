@@ -9,9 +9,19 @@
                 </div>
 
                 <div class="modal-body">
-
-                    <table id="table"></table>
-
+                    <div id="editor">
+{
+    "ForceUpdateGame": false,
+    "LatestGameVersion": "0.1.0",
+    "InternalGameVersion": 1,
+    "InternalResourceVersion": 0,
+    "UpdatePrefixUri": "https://starforce.gameframework.cn/Resources/0_1_0_1/Windows",
+    "VersionListLength": 14263,
+    "VersionListHashCode": -682235854,
+    "VersionListZipLength": 2833,
+    "VersionListZipHashCode": -274771919,
+    "END_OF_JSON": ""
+}</div>
                     <div class="clearfix"></div>
                 </div>
 
