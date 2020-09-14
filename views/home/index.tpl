@@ -91,9 +91,9 @@
                         </table>
 
                         <div class="panel-footer">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addFieldsDialogModal">版本管理</button>
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addFieldsDialogModal" onclick="{{$item.BookName}}">版本管理</button>
                             <button type="button" class="btn btn-success btn-sm">补丁管理</button>
-                            <button type="button" class="btn btn-danger btn-sm">查看API</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#showApiDialogModal" onclick="showApiModal(this, {{$item.BookName}})">查看API</button>
                         </div>
                     </div>
                 </div>
@@ -110,6 +110,7 @@
             </nav>
         </div>
     </div>
+    {{template "template/api-modal.tpl" .}}
     {{template "template/fields-modal.tpl" .}}
     {{template "widgets/footer.tpl" .}}
 </div>
@@ -124,12 +125,19 @@
 <script src="{{cdnjs "/static/ace/theme-monokai.js"}}" type="text/javascript"></script>
 {{.Scripts}}
 <script>
+
+    // 查看API
+    function showApiModal(obj, name) {
+        $("#showApiLabel").html(name);
+    }
+
+
     $('#editor').height(350);
 
     ace.require("ace/ext/language_tools");
     var editor = ace.edit("editor");
     editor.$blockScrolling = Infinity;
-    editor.setFontSize(16);
+    editor.setFontSize(15);
     editor.session.setMode("ace/mode/json");
     editor.setOptions({
         enableBasicAutocompletion: true,
