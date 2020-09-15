@@ -11,9 +11,9 @@
                 <h3 class="modal-title" id="showApiLabel"></h3>
                 <p> <!--<span class="label label-success">Release</span>--></p>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="" value="https://starforce.gameframework.cn/api/wzry/release">
+                    <input id="input-release" type="text" class="form-control" placeholder="" value="https://starforce.gameframework.cn/api/wzry/release">
                     <span class="input-group-btn">
-                        <button class="btn btn-success" type="button">复制</button>
+                        <button id="release" class="btn btn-success" type="button" data-clipboard-action="copy" data-clipboard-target="#input-release">复制</button>
                     </span>
                 </div>
 
@@ -21,9 +21,9 @@
 
                 <p><!--<span class="label label-danger">Debug</span>--></p>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="" value="https://starforce.gameframework.cn/api/wzry/debug">
+                    <input id="input-debug" type="text" class="form-control" placeholder="" value="https://starforce.gameframework.cn/api/wzry/debug">
                     <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button">复制</button>
+                        <button id="debug" class="btn btn-danger" type="button" data-clipboard-action="copy" data-clipboard-target="#input-debug">复制</button>
                     </span>
                 </div>
 

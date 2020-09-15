@@ -13,6 +13,7 @@
     <!-- Bootstrap -->
     <link href="{{cdncss "/static/bootstrap/css/bootstrap.min.css"}}" rel="stylesheet">
     <link href="{{cdncss "/static/bootstrap-table/bootstrap-table.css"}}" rel="stylesheet">
+    <link href="{{cdncss "/static/bootstrap-toastr/toastr.css"}}" rel="stylesheet">
     <link href="{{cdncss "/static/font-awesome/css/font-awesome.min.css"}}" rel="stylesheet">
     <link href="{{cdncss "/static/css/main.css" "version"}}" rel="stylesheet">
 </head>
@@ -118,13 +119,64 @@
 <script src="{{cdnjs "/static/bootstrap/js/bootstrap.min.js"}}" type="text/javascript"></script>
 <script src="{{cdnjs "/static/bootstrap-table/bootstrap-table.js"}}" type="text/javascript"></script>
 <script src="{{cdnjs "/static/bootstrap-table/locale/bootstrap-table-zh-CN.js"}}" type="text/javascript"></script>
+<script src="{{cdnjs "/static/bootstrap-toastr/toastr.min.js"}}" type="text/javascript"></script>
 <script src="{{cdnjs "/static/js/bootstrap.extend.js"}}" type="text/javascript"></script>
+<script src="{{cdnjs "/static/js/clipboard.min.js"}}" type="text/javascript"></script>
 
 <script src="{{cdnjs "/static/ace/ace.js"}}" type="text/javascript"></script>
 <script src="{{cdnjs "/static/ace/ext-language_tools.js"}}" type="text/javascript"></script>
 <script src="{{cdnjs "/static/ace/theme-monokai.js"}}" type="text/javascript"></script>
 {{.Scripts}}
 <script>
+
+    // 设置Toastr属性
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-center-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "0",
+        "hideDuration": "5000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+    // 复制到剪切板
+    var copyRelease = new ClipboardJS('#release', {
+        container: document.getElementById('modal')
+    });
+
+    copyRelease.on('success', function(e) {
+        //alert("复制成功");
+        toastr.success("复制成功");
+    });
+
+    copyRelease.on('error', function(e) {
+        console.log(e);
+        toastr.error(e);
+    });
+
+    var copyDebug = new ClipboardJS('#debug', {
+        container: document.getElementById('modal')
+    });
+
+    copyDebug.on('success', function(e) {
+        //alert("复制成功");
+        toastr.success("复制成功");
+    });
+
+    copyDebug.on('error', function(e) {
+        console.log(e);
+        toastr.error(e);
+    });
+
 
     // 查看API
     function showApiModal(obj, name) {
