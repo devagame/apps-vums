@@ -33,7 +33,7 @@
                                 <div class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> 操作 <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">服务器状态</a></li>
+                                        <li><a href="" data-toggle="modal" data-target="#addFieldsDialogModal">服务器状态</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li><a href="#">设置</a></li>
                                     </ul>
@@ -92,8 +92,8 @@
                         </table>
 
                         <div class="panel-footer">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addFieldsDialogModal" onclick="{{$item.BookName}}">版本管理</button>
-                            <button type="button" class="btn btn-success btn-sm">补丁管理</button>
+                            <a class="btn btn-primary btn-sm" href="{{urlfor "VersionController.Index" ":key" $item.Identify}}">版本管理</a>
+                            <a class="btn btn-success btn-sm" href="{{urlfor "HotfixController.Index" ":key" $item.Identify}}">补丁管理</a>
                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#showApiDialogModal" onclick="showApiModal(this, {{$item.BookName}})">查看API</button>
                         </div>
                     </div>

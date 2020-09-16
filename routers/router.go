@@ -148,4 +148,8 @@ func init() {
 	beego.Router("/items", &controllers.ItemsetsController{},"get:Index")
 	beego.Router("/items/:key", &controllers.ItemsetsController{},"get:List")
 
+	// 版本管理
+	beego.Router("/version/:key", &controllers.VersionController{},"*:Index")
+	beego.Router("/hotfix/:key", &controllers.HotfixController{},"*:Index")
+
 }

@@ -1052,6 +1052,7 @@ textarea{
 
 .footer .container-fluid .border-top{
     border-top: 1px solid #DDDDD9;
+    padding: 15px;
 }
 
 .manual-container .footer .container-fluid .row{

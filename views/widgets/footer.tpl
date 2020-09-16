@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="container-fluid">
-        <div class="row text-center border-top">
-            <span><a href="https://www.iminho.me" target="_blank">© 2020 DEVA GAME</a></span>
+        <div class="text-center border-top">
+            <span><a href="https://open.devagame.com" target="_blank">© 2020 DEVA GAME</a></span>
         </div>
     </div>
 

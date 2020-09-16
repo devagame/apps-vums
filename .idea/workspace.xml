@@ -20,15 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cf175f8-4ddd-40c6-a873-05456b8f505a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/bootstrap-toastr/toastr.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap-toastr/toastr.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap-toastr/toastr.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/bootstrap-toastr/toastr.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/clipboard.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/HotfixController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/VersionController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/hotfix/index.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/version/index.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/mindoc.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/mindoc.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/home/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/template/api-modal.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/template/api-modal.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/widgets/footer.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/widgets/footer.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +41,7 @@
       <list>
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -57,6 +59,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
