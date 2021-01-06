@@ -30,7 +30,7 @@
                 </li>
 
                 <li {{if eq .ControllerName "BlogController"}}{{if eq  .ActionName "List" "Index"}}class="active"{{end}}{{end}}>
-                    <a href="{{urlfor "BlogController.List" }}" title="文章">文章</a>
+                    <a href="{{urlfor "BlogController.List" }}" title="版本日志">记录</a>
                 </li>
 
                 <li {{if eq .ControllerName "ItemsetsController"}}class="active"{{end}}>
