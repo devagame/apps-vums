@@ -137,7 +137,7 @@ func (m *Option) Init() error {
 	}
 	if !o.QueryTable(m.TableNameWithPrefix()).Filter("option_name", "SITE_NAME").Exist() {
 		option := NewOption()
-		option.OptionValue = "MinDoc文档管理系统"
+		option.OptionValue = "迪哇版本更新管理系统"
 		option.OptionName = "SITE_NAME"
 		option.OptionTitle = "站点名称"
 		if _, err := o.Insert(option); err != nil {
@@ -146,7 +146,7 @@ func (m *Option) Init() error {
 	}
 	if !o.QueryTable(m.TableNameWithPrefix()).Filter("option_name", "site_description").Exist() {
 		option := NewOption()
-		option.OptionValue = "MinDoc 是一款针对IT团队开发的简单好用的文档管理系统，可以用来储存日常接口文档，数据库字典，手册说明等文档。内置项目管理，用户管理，权限管理等功能，支持Markdown和富文本两种编辑器，能够满足大部分中小团队的文档管理需求。"
+		option.OptionValue = "迪哇版本更新管理系统"
 		option.OptionName = "site_description"
 		option.OptionTitle = "站点描述"
 		if _, err := o.Insert(option); err != nil {

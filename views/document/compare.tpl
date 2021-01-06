@@ -13,7 +13,7 @@
     <link type="text/css" rel="stylesheet" href="{{cdncss "/static/mergely/lib/mergely.css"}}" />
     <link type='text/css' rel='stylesheet' href="{{cdncss "/static/mergely/editor/editor.css"}}" />
 
-    <script type="text/javascript" src="{{cdnjs "/static/jquery/1.12.4/jquery.min.js"}}"></script>
+    <script type="text/javascript" src="{{cdnjs "/static/jquery/jquery.min.js"}}"></script>
     <script type="text/javascript" src="{{cdnjs "/static/mergely/editor/lib/wicked-ui.js"}}"></script>
     <script type="text/javascript" src="{{cdnjs "/static/mergely/editor/lib/tipsy/jquery.tipsy.js"}}"></script>
     <script type="text/javascript" src="{{cdnjs "/static/mergely/editor/lib/farbtastic/farbtastic.js"}}"></script>

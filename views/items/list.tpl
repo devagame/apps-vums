@@ -112,7 +112,7 @@
     </div>
 {{template "widgets/footer.tpl" .}}
 </div>
-<script src="{{cdnjs "/static/jquery/1.12.4/jquery.min.js"}}"></script>
+<script src="{{cdnjs "/static/jquery/jquery.min.js"}}"></script>
 <script src="{{cdnjs "/static/bootstrap/js/bootstrap.min.js"}}"></script>
 {{.Scripts}}
 </body>

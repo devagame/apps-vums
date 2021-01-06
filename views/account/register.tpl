@@ -20,7 +20,7 @@
     <script src="/static/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{{cdnjs "/static/jquery/1.12.4/jquery.min.js"}}"></script>
+    <script src="{{cdnjs "/static/jquery/jquery.min.js"}}"></script>
 </head>
 <body class="manual-container">
 <header class="navbar navbar-static-top smart-nav navbar-fixed-top manual-header" role="banner">

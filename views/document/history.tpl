@@ -20,7 +20,7 @@
     <script src="/static/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{{cdnjs "/static/jquery/1.12.4/jquery.min.js"}}"></script>
+    <script src="{{cdnjs "/static/jquery/jquery.min.js"}}"></script>
     <style type="text/css">
         .container{margin: 5px auto;}
     </style>

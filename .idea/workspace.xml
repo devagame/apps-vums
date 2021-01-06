@@ -20,16 +20,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cf175f8-4ddd-40c6-a873-05456b8f505a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/HotfixController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/VersionController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/hotfix/index.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/version/index.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/mindoc.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/mindoc.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/home/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/home/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/widgets/footer.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/widgets/footer.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Options.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Options.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/find_password_setp1.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/find_password_setp1.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/find_password_setp2.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/find_password_setp2.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/login.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/login.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/account/register.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/register.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog/manage_edit.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/manage_edit.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog/manage_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/manage_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/blog/manage_setting.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/blog/manage_setting.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/dashboard.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/dashboard.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/setting.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/setting.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/team.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/team.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/book/users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/book/users.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/comment/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/comment/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/document/compare.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/document/compare.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/document/default_read.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/document/default_read.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/document/history.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/document/history.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/document/html_edit_template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/document/html_edit_template.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/document/kancloud_read_template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/document/kancloud_read_template.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/document/markdown_edit_template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/document/markdown_edit_template.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/document/new_html_edit_template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/document/new_html_edit_template.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/items/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/items/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/items/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/items/list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/label/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/label/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/label/list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/label/list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/attach_detailed.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/attach_detailed.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/attach_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/attach_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/books.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/books.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/comments.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/comments.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/config.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/config.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/edit_book.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/edit_book.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/edit_users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/edit_users.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/itemsets.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/itemsets.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/label_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/label_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/setting.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/setting.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/team.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/team.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/team_book_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/team_book_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/team_member_list.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/team_member_list.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/manager/users.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/manager/users.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/search/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/search/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/setting/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/setting/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/setting/password.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/setting/password.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/template.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="D:\Go" />
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../Go/go1.15.6" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -62,14 +103,14 @@
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
-    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
-    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="configurable..is.expanded" value="false" />
+    <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="ReadonlyStatusHandler">
     <option name="SHOW_DIALOG" value="false" />
@@ -124,6 +165,14 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructuralSearchPlugin">
+    <replaceConfiguration name="Unnamed" created="1609915874024" text="/static/jquery/1.12.4/jquery.min." recursive="false" caseInsensitive="false" type="XML" scope_type="PROJECT" scope_descriptor="" reformatAccordingToStyle="false" shortenFQN="false" replacement="/static/jquery/jquery.min." history="1">
+      <constraint name="__context__" within="" contains="" />
+    </replaceConfiguration>
+    <replaceConfiguration name="Unnamed" created="1609915785194" text="/static/jquery/1.12.4/jquery.min." recursive="false" caseInsensitive="false" type="XML" scope_type="PROJECT" scope_descriptor="" reformatAccordingToStyle="false" shortenFQN="false" replacement="" history="1">
+      <constraint name="__context__" within="" contains="" />
+    </replaceConfiguration>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
@@ -136,7 +185,14 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="210" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="229" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -153,90 +209,5 @@
         <entry key="GOPROXY" value="https://goproxy.cn" />
       </map>
     </environment>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="752" y="450" key="#GOROOT" timestamp="1598954709526">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="752" y="450" key="#GOROOT/0.0.1920.1040@0.0.1920.1040" timestamp="1598954709526" />
-    <state x="1022" y="492" key="#Go_Modules" timestamp="1598970325050">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1022" y="492" key="#Go_Modules/0.0.2560.1400@0.0.2560.1400" timestamp="1598970325050" />
-    <state x="693" y="342" key="#Notifications" timestamp="1599033530824">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="693" y="342" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1599033530824" />
-    <state x="772" y="252" key="#Plugins" timestamp="1598972025927">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="772" y="252" key="#Plugins/0.0.2560.1400@0.0.2560.1400" timestamp="1598972025927" />
-    <state x="748" y="305" width="807" height="429" key="#Web_Browsers" timestamp="1599202576075">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="748" y="305" width="807" height="429" key="#Web_Browsers/0.0.1920.1040@0.0.1920.1040" timestamp="1599202576075" />
-    <state x="414" y="174" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600145326107">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="414" y="174" width="1092" height="718" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1600145326107" />
-    <state x="695" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599031647648">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="695" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1599031647648" />
-    <state x="957" y="419" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1598971851019">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="957" y="419" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1598971851019" />
-    <state x="1072" y="555" width="780" height="349" key="EnvironmentVariablesDialog" timestamp="1598973383483">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1072" y="555" width="780" height="349" key="EnvironmentVariablesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1598973383483" />
-    <state x="753" y="415" key="FileChooserDialogImpl" timestamp="1599202574513">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="753" y="415" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1599202574513" />
-    <state x="1004" y="559" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1598973368049" />
-    <state width="2507" height="385" key="GridCell.Tab.0.bottom" timestamp="1599049986104">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1575" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1599035528940" />
-    <state width="2507" height="385" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1599049986104" />
-    <state width="2507" height="385" key="GridCell.Tab.0.center" timestamp="1599049986104">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1575" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1599035528940" />
-    <state width="2507" height="385" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1599049986104" />
-    <state width="2507" height="385" key="GridCell.Tab.0.left" timestamp="1599049986104">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1575" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1599035528940" />
-    <state width="2507" height="385" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1599049986104" />
-    <state width="2507" height="385" key="GridCell.Tab.0.right" timestamp="1599049986104">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state width="1575" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1599035528940" />
-    <state width="2507" height="385" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1599049986104" />
-    <state x="416" y="242" key="SettingsEditor" timestamp="1599805647764">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="416" y="242" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1599805647764" />
-    <state x="646" y="422" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1599288762979" />
-    <state x="772" y="366" key="Vcs.Push.Dialog.v2" timestamp="1599313467602">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="772" y="366" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1599313467602" />
-    <state x="661" y="252" width="598" height="536" key="find.popup" timestamp="1599030827130">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="661" y="252" width="598" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599030827130" />
-    <state x="644" y="229" width="672" height="769" key="search.everywhere.popup" timestamp="1600138142551">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="644" y="229" width="672" height="769" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1600138142551" />
-    <state x="859" y="308" width="840" height="1034" key="search.everywhere.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1599294661041" />
-    <state x="682" y="431" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1599034598052">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="682" y="431" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1599034598052" />
   </component>
 </project>
