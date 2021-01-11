@@ -119,7 +119,7 @@ func (m *Option) Init() error {
 	}
 	if !o.QueryTable(m.TableNameWithPrefix()).Filter("option_name", "ENABLED_CAPTCHA").Exist() {
 		option := NewOption()
-		option.OptionValue = "true"
+		option.OptionValue = "false"
 		option.OptionName = "ENABLED_CAPTCHA"
 		option.OptionTitle = "是否启用验证码"
 		if _, err := o.Insert(option); err != nil {

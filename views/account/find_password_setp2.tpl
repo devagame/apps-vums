@@ -74,7 +74,7 @@
 <script type="text/javascript">
     $(function () {
         $("#email,#code").on('focus',function () {
-            $(this).tooltip('destroy').parents('.form-group').removeClass('has-error');;
+            $(this).tooltip('destroy').parents('.form-group').removeClass('has-error');
         });
 
         $(document).keydown(function (e) {
