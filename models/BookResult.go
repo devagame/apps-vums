@@ -10,10 +10,13 @@ import (
 	"time"
 
 	"encoding/json"
+	"net/http"
+	"regexp"
+
 	"github.com/PuerkitoBio/goquery"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/orm"
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/beego/v2/server/web"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/converter"
 	"github.com/devagame/apps-vums/utils/cryptil"
@@ -21,9 +24,7 @@ import (
 	"github.com/devagame/apps-vums/utils/gopool"
 	"github.com/devagame/apps-vums/utils/requests"
 	"github.com/devagame/apps-vums/utils/ziptil"
-	"gopkg.in/russross/blackfriday.v2"
-	"net/http"
-	"regexp"
+	"github.com/russross/blackfriday/v2"
 )
 
 var (
@@ -228,7 +229,7 @@ func (m *BookResult) ToBookResult(book Book) *BookResult {
 	}
 
 	if m.ItemId > 0 {
-		if item,err := NewItemsets().First(m.ItemId); err == nil {
+		if item, err := NewItemsets().First(m.ItemId); err == nil {
 			m.ItemName = item.ItemName
 		}
 	}
@@ -261,7 +262,7 @@ func (m *BookResult) Converter(sessionId string) (ConvertBookResult, error) {
 	convertBookResult := ConvertBookResult{}
 
 	outputPath := filepath.Join(conf.GetExportOutputPath(), strconv.Itoa(m.BookId))
-	viewPath := beego.BConfig.WebConfig.ViewsPath
+	viewPath := web.BConfig.WebConfig.ViewsPath
 
 	pdfpath := filepath.Join(outputPath, "book.pdf")
 	epubpath := filepath.Join(outputPath, "book.epub")
@@ -271,7 +272,7 @@ func (m *BookResult) Converter(sessionId string) (ConvertBookResult, error) {
 	//先将转换的文件储存到临时目录
 	tempOutputPath := filepath.Join(os.TempDir(), sessionId, m.Identify, "source") //filepath.Abs(filepath.Join("cache", sessionId))
 
-	sourceDir := strings.TrimSuffix(tempOutputPath, "source");
+	sourceDir := strings.TrimSuffix(tempOutputPath, "source")
 	if filetil.FileExists(sourceDir) {
 		if err := os.RemoveAll(sourceDir); err != nil {
 			logs.Error("删除临时目录失败 ->", sourceDir, err)
@@ -372,7 +373,7 @@ func (m *BookResult) Converter(sessionId string) (ConvertBookResult, error) {
 		}
 		var buf bytes.Buffer
 
-		if err := beego.ExecuteViewPathTemplate(&buf, "document/export.tpl", viewPath, map[string]interface{}{"Model": m, "Lists": item, "BaseUrl": conf.BaseUrl}); err != nil {
+		if err := web.ExecuteViewPathTemplate(&buf, "document/export.tpl", viewPath, map[string]interface{}{"Model": m, "Lists": item, "BaseUrl": conf.BaseUrl}); err != nil {
 			return convertBookResult, err
 		}
 		html := buf.String()
@@ -484,7 +485,7 @@ func (m *BookResult) Converter(sessionId string) (ConvertBookResult, error) {
 	}
 	logs.Info("文档转换完成：" + m.BookName)
 
-	if err := filetil.CopyFile(filepath.Join(eBookConverter.OutputPath, "output", "book.mobi"), mobipath, ); err != nil {
+	if err := filetil.CopyFile(filepath.Join(eBookConverter.OutputPath, "output", "book.mobi"), mobipath); err != nil {
 		logs.Error("复制文档失败 -> ", filepath.Join(eBookConverter.OutputPath, "output", "book.mobi"), err)
 	}
 	if err := filetil.CopyFile(filepath.Join(eBookConverter.OutputPath, "output", "book.pdf"), pdfpath); err != nil {

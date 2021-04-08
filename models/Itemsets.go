@@ -2,13 +2,14 @@ package models
 
 import (
 	"errors"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/orm"
+	"strings"
+	"time"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/core/logs"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/utils"
 	"github.com/devagame/apps-vums/utils/cryptil"
-	"strings"
-	"time"
 )
 
 //项目空间
@@ -111,8 +112,9 @@ func (item *Itemsets) Delete(itemId int) (err error) {
 	if !item.Exist(itemId) {
 		return errors.New("项目空间不存在")
 	}
-	o := orm.NewOrm()
-	if err := o.Begin(); err != nil {
+	ormer := orm.NewOrm()
+	o, err := ormer.Begin()
+	if err != nil {
 		logs.Error("开启事物失败 ->", err)
 		return err
 	}

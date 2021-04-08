@@ -8,8 +8,8 @@ import (
 
 	"strings"
 
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/orm"
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/core/logs"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/utils/filetil"
 )
@@ -82,11 +82,12 @@ func (m *Attachment) Find(id int) (*Attachment, error) {
 
 	return m, err
 }
+
 //查询指定文档的附件列表
 func (m *Attachment) FindListByDocumentId(docId int) (attaches []*Attachment, err error) {
 	o := orm.NewOrm()
 
-	_, err = o.QueryTable(m.TableNameWithPrefix()).Filter("document_id", docId).Filter("book_id__gt",0).OrderBy("-attachment_id").All(&attaches)
+	_, err = o.QueryTable(m.TableNameWithPrefix()).Filter("document_id", docId).Filter("book_id__gt", 0).OrderBy("-attachment_id").All(&attaches)
 	return
 }
 
@@ -109,7 +110,7 @@ func (m *Attachment) FindToPager(pageIndex, pageSize int) (attachList []*Attachm
 
 	if err != nil {
 		if err == orm.ErrNoRows {
-			logs.Info("没有查到附件 ->",err)
+			logs.Info("没有查到附件 ->", err)
 			err = nil
 		}
 		return
@@ -122,12 +123,12 @@ func (m *Attachment) FindToPager(pageIndex, pageSize int) (attachList []*Attachm
 		//当项目ID为0标识是文章的附件
 		if item.BookId == 0 && item.DocumentId > 0 {
 			blog := NewBlog()
-			if err := o.QueryTable(blog.TableNameWithPrefix()).Filter("blog_id",item.DocumentId).One(blog,"blog_title");err  == nil {
+			if err := o.QueryTable(blog.TableNameWithPrefix()).Filter("blog_id", item.DocumentId).One(blog, "blog_title"); err == nil {
 				attach.BookName = blog.BlogTitle
-			}else{
+			} else {
 				attach.BookName = "[文章不存在]"
 			}
-		}else {
+		} else {
 			book := NewBook()
 
 			if e := o.QueryTable(book.TableNameWithPrefix()).Filter("book_id", item.BookId).One(book, "book_name"); e == nil {

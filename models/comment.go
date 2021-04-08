@@ -2,9 +2,10 @@ package models
 
 import (
 	"errors"
-	"github.com/astaxie/beego/orm"
-	"github.com/devagame/apps-vums/conf"
 	"time"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/devagame/apps-vums/conf"
 )
 
 //Comment struct

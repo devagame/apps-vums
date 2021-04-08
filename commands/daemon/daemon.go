@@ -4,13 +4,14 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
+	"path/filepath"
+
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/beego/v2/server/web"
+	"github.com/kardianos/service"
 	"github.com/devagame/apps-vums/commands"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/controllers"
-	"github.com/kardianos/service"
-	"path/filepath"
 )
 
 type Daemon struct {
@@ -45,7 +46,6 @@ func (d *Daemon) Start(s service.Service) error {
 
 func (d *Daemon) Run() {
 
-
 	commands.ResolveCommand(d.config.Arguments)
 
 	commands.RegisterFunction()
@@ -54,9 +54,9 @@ func (d *Daemon) Run() {
 
 	commands.RegisterError()
 
-	beego.ErrorController(&controllers.ErrorController{})
+	web.ErrorController(&controllers.ErrorController{})
 
-	f,err := filepath.Abs(os.Args[0])
+	f, err := filepath.Abs(os.Args[0])
 
 	if err != nil {
 		f = os.Args[0]
@@ -64,7 +64,7 @@ func (d *Daemon) Run() {
 
 	fmt.Printf("MinDoc version => %s\nbuild time => %s\nstart directory => %s\n%s\n", conf.VERSION, conf.BUILD_TIME, f, conf.GO_VERSION)
 
-	beego.Run()
+	web.Run()
 }
 
 func (d *Daemon) Stop(s service.Service) error {

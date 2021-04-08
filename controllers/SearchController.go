@@ -1,14 +1,15 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego/logs"
+	"strconv"
+	"strings"
+
+	"github.com/beego/beego/v2/core/logs"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/models"
 	"github.com/devagame/apps-vums/utils"
 	"github.com/devagame/apps-vums/utils/pagination"
 	"github.com/devagame/apps-vums/utils/sqltil"
-	"strconv"
-	"strings"
 )
 
 type SearchController struct {
@@ -40,20 +41,20 @@ func (c *SearchController) Index() {
 		searchResult, totalCount, err := models.NewDocumentSearchResult().FindToPager(sqltil.EscapeLike(keyword), pageIndex, conf.PageSize, memberId)
 
 		if err != nil {
-			logs.Error("搜索失败 ->",err)
+			logs.Error("搜索失败 ->", err)
 			return
 		}
 		if totalCount > 0 {
-			pager := pagination.NewPagination(c.Ctx.Request, totalCount, conf.PageSize,c.BaseUrl())
+			pager := pagination.NewPagination(c.Ctx.Request, totalCount, conf.PageSize, c.BaseUrl())
 			c.Data["PageHtml"] = pager.HtmlPages()
 		} else {
 			c.Data["PageHtml"] = ""
 		}
 		if len(searchResult) > 0 {
-			keywords := strings.Split(keyword," ")
+			keywords := strings.Split(keyword, " ")
 
 			for _, item := range searchResult {
-				for _,word := range keywords {
+				for _, word := range keywords {
 					item.DocumentName = strings.Replace(item.DocumentName, word, "<em>"+word+"</em>", -1)
 					if item.Description != "" {
 						src := item.Description

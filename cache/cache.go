@@ -2,19 +2,26 @@ package cache
 
 import (
 	"bytes"
+	"context"
 	"encoding/gob"
 	"errors"
-	"github.com/astaxie/beego/cache"
-	"github.com/astaxie/beego/logs"
 	"time"
-)
 
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/beego/v2/client/cache"
+)
 
 var bm cache.Cache
 
+var nilctx = context.TODO()
+
 func Get(key string, e interface{}) error {
 
-	val := bm.Get(key)
+	val, err := bm.Get(nilctx, key)
+
+	if err != nil {
+		return errors.New("get cache error:" + err.Error())
+	}
 
 	if val == nil {
 		return errors.New("cache does not exist")
@@ -46,7 +53,6 @@ func Get(key string, e interface{}) error {
 	return errors.New("value is not []byte or string")
 }
 
-
 func Put(key string, val interface{}, timeout time.Duration) error {
 
 	var buf bytes.Buffer
@@ -59,23 +65,23 @@ func Put(key string, val interface{}, timeout time.Duration) error {
 		return err
 	}
 
-	return bm.Put(key, buf.String(), timeout)
+	return bm.Put(nilctx, key, buf.String(), timeout)
 }
 
 func Delete(key string) error {
-	return bm.Delete(key)
+	return bm.Delete(nilctx, key)
 }
 func Incr(key string) error {
-	return bm.Incr(key)
+	return bm.Incr(nilctx, key)
 }
 func Decr(key string) error {
-	return bm.Decr(key)
+	return bm.Decr(nilctx, key)
 }
-func IsExist(key string) bool {
-	return bm.IsExist(key)
+func IsExist(key string) (bool, error) {
+	return bm.IsExist(nilctx, key)
 }
 func ClearAll() error {
-	return bm.ClearAll()
+	return bm.ClearAll(nilctx)
 }
 
 func StartAndGC(config string) error {

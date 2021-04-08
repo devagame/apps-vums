@@ -2,10 +2,11 @@ package models
 
 import (
 	"errors"
-	"github.com/astaxie/beego/orm"
-	"github.com/devagame/apps-vums/conf"
 	"sync/atomic"
 	"time"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/devagame/apps-vums/conf"
 )
 
 var loggerQueue = &logQueue{channel: make(chan *Logger, 100), isRuning: 0}

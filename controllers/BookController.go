@@ -1,10 +1,10 @@
 package controllers
 
 import (
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/devagame/apps-vums/utils/sqltil"
 	"html/template"
 	"os"
 	"path/filepath"
@@ -13,16 +13,18 @@ import (
 	"strings"
 	"time"
 
+	"github.com/devagame/apps-vums/utils/sqltil"
+
 	"net/http"
 
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/orm"
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/core/logs"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/graphics"
 	"github.com/devagame/apps-vums/models"
 	"github.com/devagame/apps-vums/utils"
 	"github.com/devagame/apps-vums/utils/pagination"
-	"gopkg.in/russross/blackfriday.v2"
+	"github.com/russross/blackfriday/v2"
 )
 
 type BookController struct {
@@ -612,7 +614,7 @@ func (c *BookController) Import() {
 		c.JsonResult(6006, "项目标识已存在")
 	}
 
-	tempPath := filepath.Join(os.TempDir(), c.CruSession.SessionID())
+	tempPath := filepath.Join(os.TempDir(), c.CruSession.SessionID(context.TODO()))
 
 	os.MkdirAll(tempPath, 0766)
 
@@ -770,7 +772,7 @@ func (c *BookController) SaveSort() {
 	if c.Member.IsAdministrator() {
 		book, err := models.NewBook().FindByFieldFirst("identify", identify)
 		if err != nil || book == nil {
-			c.JsonResult(6001,"项目不存在")
+			c.JsonResult(6001, "项目不存在")
 			return
 		}
 		bookId = book.BookId

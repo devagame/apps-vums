@@ -18,10 +18,11 @@ import (
 
 	"container/list"
 	"fmt"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/orm"
-	"github.com/devagame/apps-vums/models"
 	"log"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/server/web"
+	"github.com/devagame/apps-vums/models"
 )
 
 var (
@@ -112,8 +113,8 @@ func RunMigration() {
 
 //导出数据库的表结构
 func ExportDatabaseTable() ([]string, error) {
-	db_adapter := beego.AppConfig.String("db_adapter")
-	db_database := beego.AppConfig.String("db_database")
+	db_adapter, _ := beego.AppConfig.String("db_adapter")
+	db_database, _ := beego.AppConfig.String("db_database")
 	tables := make([]string, 0)
 
 	o := orm.NewOrm()

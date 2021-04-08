@@ -6,13 +6,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/astaxie/beego/logs"
+	"html/template"
+
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/lifei6671/gocaptcha"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/mail"
 	"github.com/devagame/apps-vums/models"
 	"github.com/devagame/apps-vums/utils"
-	"github.com/lifei6671/gocaptcha"
-	"html/template"
 )
 
 // AccountController 用户登录与注册
@@ -340,7 +341,7 @@ func (c *AccountController) FindPassword() {
 			c.TplName = "errors/error.tpl"
 			return
 		}
-		subTime := memberToken.SendTime.Sub(time.Now())
+		subTime := time.Until(memberToken.SendTime)
 
 		if !strings.EqualFold(memberToken.Email, email) || subTime.Minutes() > float64(mailConf.MailExpired) || !memberToken.ValidTime.IsZero() {
 			c.Data["ErrorMessage"] = "验证码已过期，请重新操作。"
@@ -390,7 +391,7 @@ func (c *AccountController) ValidEmail() {
 		logs.Error(err)
 		c.JsonResult(6007, "邮件已失效")
 	}
-	subTime := memberToken.SendTime.Sub(time.Now())
+	subTime := time.Until(memberToken.SendTime)
 
 	if !strings.EqualFold(memberToken.Email, email) || subTime.Minutes() > float64(mailConf.MailExpired) || !memberToken.ValidTime.IsZero() {
 

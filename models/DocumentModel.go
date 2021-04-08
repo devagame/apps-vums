@@ -7,16 +7,17 @@ import (
 	"strconv"
 
 	"bytes"
-	"github.com/PuerkitoBio/goquery"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/orm"
-	"github.com/devagame/apps-vums/cache"
-	"github.com/devagame/apps-vums/conf"
-	"github.com/devagame/apps-vums/utils"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/PuerkitoBio/goquery"
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/beego/v2/server/web"
+	"github.com/devagame/apps-vums/cache"
+	"github.com/devagame/apps-vums/conf"
+	"github.com/devagame/apps-vums/utils"
 )
 
 // Document struct.
@@ -285,7 +286,7 @@ func (item *Document) Processor() *Document {
 					}
 					content.WriteString("</ul></div>")
 					if docQuery == nil {
-						docQuery, err = goquery.NewDocumentFromReader(content);
+						docQuery, err = goquery.NewDocumentFromReader(content)
 					} else {
 						if selector := docQuery.Find("div.wiki-bottom").First(); selector.Size() > 0 {
 							selector.BeforeHtml(content.String())
@@ -329,7 +330,7 @@ func (item *Document) Processor() *Document {
 					selector.First().AppendHtml(release)
 				}
 			}
-			cdnimg := beego.AppConfig.String("cdnimg")
+			cdnimg,_  := web.AppConfig.String("cdnimg")
 
 			docQuery.Find("img").Each(func(i int, selection *goquery.Selection) {
 
@@ -356,7 +357,7 @@ func (item *Document) Processor() *Document {
 						selection.SetAttr("href", "#")
 						return
 					}
-					val = strings.Replace(strings.ToLower(val), " ", "",-1)
+					val = strings.Replace(strings.ToLower(val), " ", "", -1)
 					//移除危险脚本链接
 					if strings.HasPrefix(val, "data:text/html") ||
 						strings.HasPrefix(val, "vbscript:") ||

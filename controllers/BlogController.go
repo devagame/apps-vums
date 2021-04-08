@@ -1,15 +1,9 @@
 package controllers
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/orm"
-	"github.com/devagame/apps-vums/conf"
-	"github.com/devagame/apps-vums/models"
-	"github.com/devagame/apps-vums/utils"
-	"github.com/devagame/apps-vums/utils/pagination"
 	"html/template"
 	"net/http"
 	"net/url"
@@ -18,6 +12,14 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/beego/v2/server/web"
+	"github.com/devagame/apps-vums/conf"
+	"github.com/devagame/apps-vums/models"
+	"github.com/devagame/apps-vums/utils"
+	"github.com/devagame/apps-vums/utils/pagination"
 )
 
 type BlogController struct {
@@ -49,16 +51,16 @@ func (c *BlogController) Index() {
 	}
 
 	if c.Ctx.Input.IsPost() {
-		password := c.GetString("password");
+		password := c.GetString("password")
 		if blog.BlogStatus == "password" && password != blog.Password {
 			c.JsonResult(6001, "文章密码不正确")
 		} else if blog.BlogStatus == "password" && password == blog.Password {
 			//如果密码输入正确，则存入session中
-			_ = c.CruSession.Set(blogReadSession, blogId)
+			_ = c.CruSession.Set(context.TODO(), blogReadSession, blogId)
 			c.JsonResult(0, "OK")
 		}
 		c.JsonResult(0, "OK")
-	} else if blog.BlogStatus == "password" && (c.CruSession.Get(blogReadSession) == nil || (c.Member != nil && blog.MemberId != c.Member.MemberId && !c.Member.IsAdministrator())) {
+	} else if blog.BlogStatus == "password" && (c.CruSession.Get(context.TODO(), blogReadSession) == nil || (c.Member != nil && blog.MemberId != c.Member.MemberId && !c.Member.IsAdministrator())) {
 		//如果不存在已输入密码的标记
 		c.TplName = "blog/index_password.tpl"
 	}
@@ -263,7 +265,7 @@ func (c *BlogController) ManageSetting() {
 	}
 	blogId, err := strconv.Atoi(c.Ctx.Input.Param(":id"))
 
-	c.Data["DocumentIdentify"] = "";
+	c.Data["DocumentIdentify"] = ""
 	if err == nil {
 		blog, err := models.NewBlog().FindByIdAndMemberId(blogId, c.Member.MemberId)
 		if err != nil {
@@ -384,7 +386,7 @@ func (c *BlogController) ManageEdit() {
 	if conf.GetUploadFileSize() > 0 {
 		c.Data["UploadFileSize"] = conf.GetUploadFileSize()
 	} else {
-		c.Data["UploadFileSize"] = "undefined";
+		c.Data["UploadFileSize"] = "undefined"
 	}
 	c.Data["Model"] = blog
 }
@@ -466,7 +468,7 @@ func (c *BlogController) Upload() {
 		c.JsonResult(6003, "无法解析文件的格式")
 	}
 	//如果文件类型设置为 * 标识不限制文件类型
-	if beego.AppConfig.DefaultString("upload_file_ext", "") != "*" {
+	if web.AppConfig.DefaultString("upload_file_ext", "") != "*" {
 		if !conf.IsAllowUploadFileExt(ext) {
 			c.JsonResult(6004, "不允许的文件类型")
 		}
@@ -544,7 +546,7 @@ func (c *BlogController) Upload() {
 			attachment.HttpPath = conf.URLForNotHost("BlogController.Download", ":id", blogId, ":attach_id", attachment.AttachmentId)
 
 			if err := attachment.Update(); err != nil {
-				logs.Error("保存文件失败 -> ",attachment.FilePath, err)
+				logs.Error("保存文件失败 -> ", attachment.FilePath, err)
 				c.JsonResult(6005, "保存文件失败")
 			}
 		}
@@ -628,7 +630,7 @@ func (c *BlogController) Download() {
 	}
 	blogReadSession := fmt.Sprintf("blog:read:%d", blogId)
 	//如果没有启动匿名访问，或者设置了访问密码
-	if (c.Member == nil && !c.EnableAnonymous) || (blog.BlogStatus == "password" && password != blog.Password && c.CruSession.Get(blogReadSession) == nil) {
+	if (c.Member == nil && !c.EnableAnonymous) || (blog.BlogStatus == "password" && password != blog.Password && c.CruSession.Get(context.TODO(), blogReadSession) == nil) {
 		c.ShowErrorPage(403, "没有下载权限")
 	}
 

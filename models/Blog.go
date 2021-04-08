@@ -3,15 +3,16 @@ package models
 import (
 	"bytes"
 	"fmt"
+	"strings"
+	"time"
+
 	"github.com/PuerkitoBio/goquery"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/orm"
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/beego/v2/server/web"
 	"github.com/devagame/apps-vums/cache"
 	"github.com/devagame/apps-vums/conf"
 	"github.com/devagame/apps-vums/utils"
-	"strings"
-	"time"
 )
 
 //博文表
@@ -103,13 +104,13 @@ func (b *Blog) Find(blogId int) (*Blog, error) {
 
 //从缓存中读取文章
 func (b *Blog) FindFromCache(blogId int) (blog *Blog, err error) {
-	key := fmt.Sprintf("blog-id-%d", blogId);
+	key := fmt.Sprintf("blog-id-%d", blogId)
 	var temp Blog
-	err = cache.Get(key, &temp);
+	err = cache.Get(key, &temp)
 	if err == nil {
 		b = &temp
 		b.Link()
-		beego.Debug("从缓存读取文章成功 ->", key)
+		logs.Debug("从缓存读取文章成功 ->", key)
 		return b, nil
 	} else {
 		logs.Error("读取缓存失败 ->", err)
@@ -174,13 +175,13 @@ func (b *Blog) Link() (*Blog, error) {
 			//处理链接文档存在源文档修改时间的问题
 			if content, err := goquery.NewDocumentFromReader(bytes.NewBufferString(b.BlogRelease)); err == nil {
 				content.Find(".wiki-bottom").Remove()
-				if html,err := content.Html();err == nil {
+				if html, err := content.Html(); err == nil {
 					b.BlogRelease = html
 				} else {
-					logs.Error("处理文章失败 ->",err)
+					logs.Error("处理文章失败 ->", err)
 				}
-			}else {
-				logs.Error("处理文章失败 ->",err)
+			} else {
+				logs.Error("处理文章失败 ->", err)
 			}
 		}
 	}
@@ -224,7 +225,7 @@ func (b *Blog) Save(cols ...string) error {
 	if b.OrderIndex <= 0 {
 		blog := NewBlog()
 		if err := o.QueryTable(blog.TableNameWithPrefix()).OrderBy("-blog_id").Limit(1).One(blog, "blog_id"); err == nil {
-			b.OrderIndex = blog.BlogId + 1;
+			b.OrderIndex = blog.BlogId + 1
 		} else {
 			c, _ := o.QueryTable(b.TableNameWithPrefix()).Count()
 			b.OrderIndex = int(c) + 1
@@ -272,7 +273,7 @@ func (b *Blog) Processor() *Blog {
 			}
 		})
 		//设置图片为CDN地址
-		if cdnimg := beego.AppConfig.String("cdnimg"); cdnimg != "" {
+		if cdnimg, _ := web.AppConfig.String("cdnimg"); cdnimg != "" {
 			content.Find("img").Each(func(i int, contentSelection *goquery.Selection) {
 				if src, ok := contentSelection.Attr("src"); ok && strings.HasPrefix(src, "/uploads/") {
 					contentSelection.SetAttr("src", utils.JoinURI(cdnimg, src))

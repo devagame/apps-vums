@@ -3,10 +3,11 @@ package migrate
 import (
 	"errors"
 	"fmt"
-	"github.com/astaxie/beego/orm"
-	"github.com/devagame/apps-vums/models"
 	"strings"
 	"time"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/devagame/apps-vums/models"
 )
 
 type MigrationVersion03 struct {

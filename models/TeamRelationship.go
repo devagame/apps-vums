@@ -2,10 +2,11 @@ package models
 
 import (
 	"errors"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/orm"
-	"github.com/devagame/apps-vums/conf"
 	"time"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/devagame/apps-vums/conf"
 )
 
 type TeamRelationship struct {
@@ -161,8 +162,8 @@ func (m *TeamRelationship) Include() (*TeamRelationship, error) {
 			}
 		}
 	}
-	if m.TeamId > 0{
-		team ,err := NewTeam().First(m.TeamId)
+	if m.TeamId > 0 {
+		team, err := NewTeam().First(m.TeamId)
 		if err == nil {
 			m.TeamName = team.TeamName
 			m.MemberCount = team.MemberCount

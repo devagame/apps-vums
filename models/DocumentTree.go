@@ -3,10 +3,11 @@ package models
 import (
 	"bytes"
 	"fmt"
-	"github.com/astaxie/beego/orm"
-	"github.com/devagame/apps-vums/conf"
 	"html/template"
 	"math"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/devagame/apps-vums/conf"
 )
 
 type DocumentTree struct {

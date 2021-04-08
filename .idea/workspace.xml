@@ -21,8 +21,64 @@
   <component name="ChangeListManager">
     <list default="true" id="8cf175f8-4ddd-40c6-a873-05456b8f505a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cache.go" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cache/cache_null.go" beforeDir="false" afterPath="$PROJECT_DIR$/cache/cache_null.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/command.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/command.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/daemon/daemon.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/daemon/daemon.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/install.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/install.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/migrate/migrate.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/migrate/migrate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/migrate/migrate_v03.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/migrate/migrate_v03.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/update.go" beforeDir="false" afterPath="$PROJECT_DIR$/commands/update.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/enumerate.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/enumerate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/mail.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/mail.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/AccountController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/AccountController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/BaseController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BaseController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/BlogController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BlogController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/BookController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BookController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/BookMemberController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BookMemberController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/DocumentController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/DocumentController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/HomeController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/HomeController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/ItemsetsController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ItemsetsController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/LabelController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/LabelController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/ManagerController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/ManagerController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/SearchController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SearchController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/SettingController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/SettingController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/TemplateController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/TemplateController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/converter/converter.go" beforeDir="false" afterPath="$PROJECT_DIR$/converter/converter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mindoc.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/mindoc.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mail/smtp.go" beforeDir="false" afterPath="$PROJECT_DIR$/mail/smtp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/AttachmentModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/AttachmentModel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/AttachmentResult.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/AttachmentResult.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Blog.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Blog.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/BookModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/BookModel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/BookResult.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/BookResult.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Dashboard.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Dashboard.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/DocumentHistory.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/DocumentHistory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/DocumentModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/DocumentModel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/DocumentSearchResult.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/DocumentSearchResult.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/DocumentTree.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/DocumentTree.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Itemsets.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Itemsets.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/LabelModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/LabelModel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Logs.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Logs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Member.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Member.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MemberResult.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/MemberResult.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/MemberToken.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/MemberToken.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Migrations.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Migrations.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/Options.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Options.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/account/find_password_setp2.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/views/account/find_password_setp2.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Relationship.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Relationship.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Team.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Team.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TeamMember.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/TeamMember.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TeamRelationship.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/TeamRelationship.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/Template.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/Template.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/comment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/comment_result.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/comment_result.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/comment_vote.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/comment_vote.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/filter.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/filter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/ldap.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/ldap.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +117,7 @@
     <property name="configurable.GoLibrariesConfigurable.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mindoc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="ReadonlyStatusHandler">

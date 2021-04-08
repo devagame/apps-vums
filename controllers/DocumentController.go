@@ -1,21 +1,9 @@
 package controllers
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/orm"
-	"github.com/boombuler/barcode"
-	"github.com/boombuler/barcode/qr"
-	"github.com/devagame/apps-vums/conf"
-	"github.com/devagame/apps-vums/models"
-	"github.com/devagame/apps-vums/utils"
-	"github.com/devagame/apps-vums/utils/cryptil"
-	"github.com/devagame/apps-vums/utils/filetil"
-	"github.com/devagame/apps-vums/utils/gopool"
-	"github.com/devagame/apps-vums/utils/pagination"
-	"gopkg.in/russross/blackfriday.v2"
 	"html/template"
 	"image/png"
 	"net/http"
@@ -26,6 +14,20 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/beego/beego/v2/core/logs"
+	"github.com/beego/beego/v2/server/web"
+	"github.com/boombuler/barcode"
+	"github.com/boombuler/barcode/qr"
+	"github.com/devagame/apps-vums/conf"
+	"github.com/devagame/apps-vums/models"
+	"github.com/devagame/apps-vums/utils"
+	"github.com/devagame/apps-vums/utils/cryptil"
+	"github.com/devagame/apps-vums/utils/filetil"
+	"github.com/devagame/apps-vums/utils/gopool"
+	"github.com/devagame/apps-vums/utils/pagination"
+	"github.com/russross/blackfriday/v2"
 )
 
 // DocumentController struct
@@ -241,12 +243,12 @@ func (c *DocumentController) Edit() {
 		}
 	}
 
-	c.Data["BaiDuMapKey"] = beego.AppConfig.DefaultString("baidumapkey", "")
+	c.Data["BaiDuMapKey"] = web.AppConfig.DefaultString("baidumapkey", "")
 
 	if conf.GetUploadFileSize() > 0 {
 		c.Data["UploadFileSize"] = conf.GetUploadFileSize()
 	} else {
-		c.Data["UploadFileSize"] = "undefined";
+		c.Data["UploadFileSize"] = "undefined"
 	}
 }
 
@@ -838,7 +840,7 @@ func (c *DocumentController) Export() {
 		if bookResult.Editor != "markdown" {
 			c.ShowErrorPage(500, "当前项目不支持Markdown编辑器")
 		}
-		p, err := bookResult.ExportMarkdown(c.CruSession.SessionID())
+		p, err := bookResult.ExportMarkdown(c.CruSession.SessionID(context.TODO()))
 
 		if err != nil {
 			c.ShowErrorPage(500, "导出文档失败")
@@ -873,7 +875,7 @@ func (c *DocumentController) Export() {
 		c.Abort("200")
 
 	} else if output == "pdf" || output == "epub" || output == "docx" || output == "mobi" {
-		if err := models.BackgroundConvert(c.CruSession.SessionID(), bookResult); err != nil && err != gopool.ErrHandlerIsExist {
+		if err := models.BackgroundConvert(c.CruSession.SessionID(context.TODO()), bookResult); err != nil && err != gopool.ErrHandlerIsExist {
 			c.ShowErrorPage(500, "导出失败，请查看系统日志")
 		}
 
@@ -1257,7 +1259,7 @@ func (c *DocumentController) isReadable(identify, token string) *models.BookResu
 				if book.BookPassword != "" {
 					//判断已存在的密码是否正确
 					if password, ok := c.GetSession(identify).(string); !ok || !strings.EqualFold(password, book.BookPassword) {
-						body, err := c.ExecuteViewPathTemplate("document/document_password.tpl", map[string]string{"Identify": book.Identify});
+						body, err := c.ExecuteViewPathTemplate("document/document_password.tpl", map[string]string{"Identify": book.Identify})
 						if err != nil {
 							logs.Error("显示密码页面失败 ->", err)
 						}
@@ -1276,7 +1278,7 @@ func (c *DocumentController) isReadable(identify, token string) *models.BookResu
 
 func promptUserToLogIn(c *DocumentController) {
 	logs.Info("Access " + c.Ctx.Request.URL.RequestURI() + " not permitted.")
-	logs.Info("  Access will be redirected to login page(SessionId: " + c.CruSession.SessionID() + ").")
+	logs.Info("  Access will be redirected to login page(SessionId: " + c.CruSession.SessionID(context.TODO()) + ").")
 
 	if c.IsAjax() {
 		c.JsonResult(6000, "请重新登录。")

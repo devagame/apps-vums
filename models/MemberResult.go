@@ -1,9 +1,10 @@
 package models
 
 import (
-	"github.com/astaxie/beego/orm"
-	"github.com/devagame/apps-vums/conf"
 	"time"
+
+	"github.com/beego/beego/v2/client/orm"
+	"github.com/devagame/apps-vums/conf"
 )
 
 type MemberRelationshipResult struct {
@@ -117,8 +118,7 @@ func (m *MemberRelationshipResult) FindNotJoinUsersByAccountOrRealName(bookId, l
 
 	var members []*Member
 
-	_, err := o.Raw(sql, bookId, keyWord,keyWord, limit).QueryRows(&members)
+	_, err := o.Raw(sql, bookId, keyWord, keyWord, limit).QueryRows(&members)
 
 	return members, err
 }
-

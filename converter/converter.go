@@ -10,15 +10,16 @@ import (
 	"path/filepath"
 	"strings"
 
-	"time"
-	"os/exec"
 	"errors"
+	"os/exec"
+	"time"
 
+	"html"
+	"sync"
+
+	"github.com/devagame/apps-vums/utils/cryptil"
 	"github.com/devagame/apps-vums/utils/filetil"
 	"github.com/devagame/apps-vums/utils/ziptil"
-	"github.com/devagame/apps-vums/utils/cryptil"
-	"sync"
-	"html"
 )
 
 type Converter struct {

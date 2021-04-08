@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/astaxie/beego/orm"
+	"github.com/beego/beego/v2/client/orm"
 	"github.com/devagame/apps-vums/conf"
 )
 
@@ -137,7 +137,7 @@ func (m *Option) Init() error {
 	}
 	if !o.QueryTable(m.TableNameWithPrefix()).Filter("option_name", "SITE_NAME").Exist() {
 		option := NewOption()
-		option.OptionValue = "迪哇版本更新管理系统"
+		option.OptionValue = "游戏版本更新管理系统"
 		option.OptionName = "SITE_NAME"
 		option.OptionTitle = "站点名称"
 		if _, err := o.Insert(option); err != nil {
@@ -146,7 +146,7 @@ func (m *Option) Init() error {
 	}
 	if !o.QueryTable(m.TableNameWithPrefix()).Filter("option_name", "site_description").Exist() {
 		option := NewOption()
-		option.OptionValue = "迪哇版本更新管理系统"
+		option.OptionValue = "游戏版本更新管理系统"
 		option.OptionName = "site_description"
 		option.OptionTitle = "站点描述"
 		if _, err := o.Insert(option); err != nil {
